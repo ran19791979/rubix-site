@@ -142,6 +142,14 @@ html = f'''<!doctype html>
 </html>
 '''
 appjs = morph + '\n' + runtime + '\n' + contact_fix
+# cache-busting: media is cached for a week, so every reference carries the file's content hash
+import hashlib
+def _ver(m):
+    f = os.path.join(ROOT, 'public', 'media', m.group(2))
+    if not os.path.exists(f): return m.group(0)
+    return m.group(1) + 'media/' + m.group(2) + '?v=' + hashlib.md5(open(f, 'rb').read()).hexdigest()[:8]
+html = re.sub(r'(["\'(])media/([\w.-]+\.(?:mp4|jpg|webp))', _ver, html)
+appjs = re.sub(r'(["\'(])media/([\w.-]+\.(?:mp4|jpg|webp))', _ver, appjs)
 if SUB:  # media and favicon live once, in public/
     html = re.sub(r'(["\'(])media/', r'\1../media/', html).replace('href="favicon.svg"', 'href="../favicon.svg"')
     appjs = re.sub(r'(["\'(])media/', r'\1../media/', appjs)

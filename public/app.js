@@ -57,7 +57,7 @@ class Component extends DCLogic {
     document.addEventListener('click', this.onVidTap, true);
   }
   vidsData() {
-    return [{"src": "media/desk.mp4", "poster": "media/desk-poster.jpg", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/agent.mp4", "poster": "media/agent-poster.jpg", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/automation.mp4", "poster": "media/automation-poster.jpg", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/website.mp4", "poster": "media/website-poster.jpg", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
+    return [{"src": "media/desk.mp4?v=545a95c9", "poster": "media/desk-poster.jpg?v=88cffc39", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/agent.mp4?v=688ddf9c", "poster": "media/agent-poster.jpg?v=80cf3a64", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/automation.mp4?v=1a67bd5e", "poster": "media/automation-poster.jpg?v=aaa957b1", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/website.mp4?v=5c1b9535", "poster": "media/website-poster.jpg?v=cb2a12df", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
   }
   buildViewer() {
     if (this.vv) return this.vv;
