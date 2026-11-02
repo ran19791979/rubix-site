@@ -3,8 +3,10 @@ index.html + app.js (tiny runtime: holes, <sc-if>, delegated events, morphdom di
 import json, os, re, shutil, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = ROOT + '/src/Main.dc.html'
-OUT = ROOT + '/public'
+# usage: python3 tools/build.py [src/Main.dc.html] [public]   (a sub-folder build, e.g. public/v2, links media from ../media)
+SRC = os.path.join(ROOT, sys.argv[1]) if len(sys.argv) > 1 else ROOT + '/src/Main.dc.html'
+OUT = os.path.join(ROOT, sys.argv[2]) if len(sys.argv) > 2 else ROOT + '/public'
+SUB = os.path.relpath(OUT, ROOT + '/public') != '.'
 os.makedirs(OUT + '/media', exist_ok=True)
 
 src = open(SRC, encoding='utf-8').read()
@@ -99,14 +101,17 @@ document.addEventListener('click', (e) => {
   if (!b) return;
   const v = (id) => ((document.getElementById(id) || {}).value || '').trim();
   const name = v('f-name'), mail = v('f-email'), need = v('f-need');
-  if (!name || !mail || !need) {
+  const hasMail = !!document.getElementById('f-email');
+  const needPhone = !hasMail && !!document.getElementById('f-phone');
+  if (!name || (hasMail && !mail) || (needPhone && !v('f-phone')) || !need) {
     let t = document.getElementById('form-toast');
     if (!t) { t = document.createElement('div'); t.id = 'form-toast'; t.setAttribute('role', 'status'); t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:300;background:#111319;color:#fff;font:700 16px Heebo,sans-serif;padding:14px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.16);box-shadow:0 20px 50px -14px rgba(0,0,0,0.85)'; document.body.appendChild(t); }
-    t.textContent = 'נא למלא שם, מייל ומה הייתם רוצים לבנות'; t.hidden = false;
+    t.textContent = hasMail ? 'נא למלא שם, מייל ומה הייתם רוצים לבנות' : 'נא למלא שם טלפון ומה הייתם רוצים לבנות'; t.hidden = false;
     clearTimeout(t._h); t._h = setTimeout(() => { t.hidden = true; }, 2800);
     return;
   }
-  const lines = ['היי רובי, אשמח לשמוע עוד.', 'שם: ' + name, 'מייל: ' + mail];
+  const lines = ['היי רובי, אשמח לשמוע עוד.', 'שם: ' + name];
+  if (mail) lines.push('מייל: ' + mail);
   if (v('f-phone')) lines.push('טלפון: ' + v('f-phone'));
   if (v('f-biz')) lines.push('עסק: ' + v('f-biz'));
   lines.push('מה אני רוצה לבנות: ' + need);
@@ -136,8 +141,12 @@ html = f'''<!doctype html>
 </body>
 </html>
 '''
+appjs = morph + '\n' + runtime + '\n' + contact_fix
+if SUB:  # media and favicon live once, in public/
+    html = re.sub(r'(["\'(])media/', r'\1../media/', html).replace('href="favicon.svg"', 'href="../favicon.svg"')
+    appjs = re.sub(r'(["\'(])media/', r'\1../media/', appjs)
 open(OUT + '/index.html', 'w', encoding='utf-8').write(html)
-open(OUT + '/app.js', 'w', encoding='utf-8').write(morph + '\n' + runtime + '\n' + contact_fix)
-open(OUT + '/favicon.svg', 'w').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#C8F45A"/><text x="20" y="28" font-family="Arial" font-weight="900" font-size="22" text-anchor="middle" fill="#07080C">R</text></svg>')
-open(OUT + '/robots.txt', 'w').write('User-agent: *\nDisallow: /\n')
+open(OUT + '/app.js', 'w', encoding='utf-8').write(appjs)
+if not SUB: open(OUT + '/favicon.svg', 'w').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#C8F45A"/><text x="20" y="28" font-family="Arial" font-weight="900" font-size="22" text-anchor="middle" fill="#07080C">R</text></svg>')
+if not SUB: open(OUT + '/robots.txt', 'w').write('User-agent: *\nDisallow: /\n')
 print('built', OUT)
