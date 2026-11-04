@@ -367,7 +367,7 @@ class Component extends DCLogic {
       showFaq: on(p.showFaq), showWhatsapp: on(p.showWhatsapp),
       tab0: tabFor(0), tab1: tabFor(1), tab2: tabFor(2), tab3: tabFor(3), tab4: tabFor(4), tab5: tabFor(5), tab6: tabFor(6), tab7: tabFor(7),
       story0: this.state.story === 0, story1: this.state.story === 1, story2: this.state.story === 2, story3: this.state.story === 3, story4: this.state.story === 4, story5: this.state.story === 5, story6: this.state.story === 6, story7: this.state.story === 7,
-      faq0: faqFor(0), faq1: faqFor(1), faq2: faqFor(2), faq3: faqFor(3), faq4: faqFor(4),
+      faq0: faqFor(0), faq1: faqFor(1), faq2: faqFor(2), faq3: faqFor(3), faq4: faqFor(4), faq5: faqFor(5),
       useEx0: useEx(0), useEx1: useEx(1), useEx2: useEx(2),
       desc: this.state.desc,
       setDesc: (e) => this.setState({ desc: e.target.value }),
