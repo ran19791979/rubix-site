@@ -229,7 +229,7 @@ class Component extends DCLogic {
     startOnce();
   }
   getWords() {
-    return String(this.props.heroWords ?? 'דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
+    return String(this.props.heroWords ?? 'מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
   }
   waNumber() {
     const digits = String(this.props.phone ?? '0547714300').replace(/[^0-9]/g, '');
@@ -292,7 +292,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const p = this.props;
-    const words = String(p.heroWords ?? 'דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
+    const words = String(p.heroWords ?? 'מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
     const word = this.state.typed ?? '';
     const themes = {
       'לילה': { bg: '#07080C', bg2: '#0A0B10', card: '#0E1017', card2: '#12141C', inset: '#0C0E14' },
@@ -394,7 +394,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": true, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": true, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');

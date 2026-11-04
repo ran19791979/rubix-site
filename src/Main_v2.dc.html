@@ -249,6 +249,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 .st-h span{font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--accent)}
 .step p{font-size:16px;line-height:1.55;color:#C4C8D2}
 .todo{background:rgba(255,214,107,0.14);color:#FFD66B;border:1px dashed #FFD66B;border-radius:6px;padding:0 6px;font-weight:700}
+.draft{align-self:flex-start;font-size:13px;font-weight:800;color:#FFD66B;border:1px dashed #FFD66B;border-radius:999px;padding:3px 10px}
 .tm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
 .tm{margin:0;padding:34px;border-radius:28px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:20px}
 .tm blockquote{margin:0;font-size:21px;line-height:1.65;color:#EDEEF2;font-weight:500}
@@ -280,6 +281,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   .tabs-row>button{flex:none;white-space:nowrap !important;min-height:44px !important;padding:10px 16px !important;border-radius:999px !important;font-size:15px !important}
   .steps{grid-template-columns:1fr;gap:10px}
   .step{padding:16px;border-radius:20px}
+  .me-row{flex-direction:column;align-items:flex-start;gap:18px}
   .me-pic{width:96px;height:96px}
   .tm{padding:24px}
   .tm blockquote{font-size:18px}
@@ -343,14 +345,14 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       </div>
       <h1 class="rise" style="--d:70ms;font-size:clamp(44px,6.6vw,92px);font-weight:800;line-height:1.04;letter-spacing:-0.025em;color:#FFFFFF">פחות עבודה ידנית.<br><span style="color:var(--accent)">יותר זמן לעסק.</span></h1>
       <div class="rise" style="--d:140ms;font-family:var(--display);font-size:clamp(23px,2.8vw,36px);font-weight:700;line-height:1.35;color:#D2D5DD;min-height:2.7em">
-        היי, אני רובי. אני בונה <span style="color:#FFFFFF;border-bottom:3px solid var(--accent)">{{word}}</span><span class="caret" style="color:var(--accent)">|</span>
+        אני רובי, ואני בונה לעסקים <span style="color:#FFFFFF;border-bottom:3px solid var(--accent)">{{word}}</span><span class="caret" style="color:var(--accent)">|</span>
       </div>
-      <p class="rise" style="--d:210ms;font-size:clamp(19px,1.6vw,22px);line-height:1.7;color:#C4C8D2;max-width:600px">כלים חכמים לעסקים קטנים, שעושים לבד את העבודה שחוזרת כל יום: מענה ללקוחות, העתקת נתונים, הצעות מחיר ומעקב. אתם מקבלים בחזרה זמן ושקט.</p>
+      <p class="rise" style="--d:210ms;font-size:clamp(19px,1.6vw,22px);line-height:1.7;color:#C4C8D2;max-width:600px">המשימות שחוזרות כל יום, כמו מענה לפניות, הצעות מחיר ומעקב אחרי לקוחות, יכולות לרוץ לבד. אני בונה את הכלים שעושים את זה, ומלווה אתכם עד שהם חלק מהשגרה.</p>
       <div class="rise" style="--d:280ms;display:flex;gap:14px;flex-wrap:wrap;padding-top:4px">
         <a class="cta" href="#contact" style="padding:18px 34px;border-radius:999px;font-weight:800;font-size:19px">לשיחת היכרות חינם</a>
         <a class="ghost-strong" href="#work" style="padding:18px 34px;border-radius:999px;font-weight:700;font-size:19px">צפו בעבודות ↓</a>
       </div>
-      <p class="rise" style="--d:340ms;font-size:16px;font-weight:600;color:#A9ADBA">שיחה קצרה, בלי התחייבות · עובדים ישירות מולי</p>
+      <p class="rise" style="--d:340ms;font-size:16px;font-weight:600;color:#A9ADBA">שיחת היכרות קצרה, בלי התחייבות · ישירות מולי, בלי מתווכים</p>
     </div>
   </div>
 </div>
@@ -395,9 +397,9 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
         <button type="button" class="vbtn vprev" onClick="{{openV0}}" aria-label="צפו בסרטון של 35 שניות: מערכת לניהול תוכן ולקוחות"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/desk-still.jpg"><img src="media/desk-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span><span class="vdur">0:35</span></button>
         <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:15px;color:var(--accent);font-weight:800">דשבורד</span>
+          <span style="font-size:15px;color:var(--accent);font-weight:800">דשבורד + סוכני AI</span>
           <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">מערכת לניהול תוכן ולקוחות</h3>
-          <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">כל הלקוחות ותוכנית התוכן במסך אחד. AI כותב את הפוסט בסגנון של כל לקוח ואתם רק מאשרים.</p>
+          <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">דשבורד שמרכז את כל הלקוחות ותוכנית התוכן, עם סוכני AI שכותבים כל פוסט בסגנון של הלקוח. נשאר רק לאשר.</p>
         </div>
       </div>
 
@@ -440,18 +442,20 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="trust" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px 0;display:flex;flex-direction:column;gap:36px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מה אומרים</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מי שכבר עבד איתי<br><span style="color:#7C8190">מספר בעצמו</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">הלקוחות הראשונים שלי<br><span style="color:#7C8190">מספרים בעצמם</span></h2>
   </div>
   <div class="tm-grid">
     <figure class="card tm">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--accent)"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">אתר בית הספר</span></div>
-      <blockquote><mark class="todo">[להשלים: ההמלצה של מיקי, משפט או שניים]</mark></blockquote>
-      <figcaption><b>מיקי</b><span><mark class="todo">[להשלים: שם מלא ותפקיד]</mark></span></figcaption>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--accent)"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">אתר + פאנל ניהול</span></div>
+      <span class="draft">טיוטה · ממתינה לאישור</span>
+      <blockquote>רובי בנה לנו אתר שמשקף באמת את בית הספר. הוא הקשיב, שאל את השאלות הנכונות, והתוצאה מדויקת. והכי חשוב: הצוות מעדכן את האתר לבד, בלי לחכות לאף אחד.</blockquote>
+      <figcaption><b>מיקי <mark class="todo">[להשלים: שם משפחה]</mark></b><span>מנהלת בית ספר גלבוע בית אלפא</span></figcaption>
     </figure>
     <figure class="card tm">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--accent)"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">דשבורד</span></div>
-      <blockquote><mark class="todo">[להשלים: ההמלצה של הדס על הדשבורד, משפט או שניים]</mark></blockquote>
-      <figcaption><b>הדס</b><span><mark class="todo">[להשלים: שם מלא והעסק]</mark></span></figcaption>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--accent)"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">דשבורד + סוכני AI</span></div>
+      <span class="draft">טיוטה · ממתינה לאישור</span>
+      <blockquote>רובי בנה לי דשבורד שמרכז את כל הלקוחות ותוכנית התוכן במקום אחד, עם סוכני AI שכותבים טיוטות בסגנון של כל לקוח ובודקים אותן לפני שהן מגיעות אליי. מה שלקח לי שעות כל שבוע, היום לוקח דקות.</blockquote>
+      <figcaption><b>הדס <mark class="todo">[להשלים: שם משפחה]</mark></b><span><mark class="todo">[להשלים: שם העסק]</mark> · שיווק דיגיטלי</span></figcaption>
     </figure>
   </div>
 </div>
@@ -733,7 +737,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   </div>
   <div class="me-row">
     <div class="me-pic"><img src="media/rubi.webp" alt="רובי יניר פרקש" width="360" height="360" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></div>
-    <p style="font-size:18px;line-height:1.65;color:#D2D5DE">אני רובי. יותר מ-15 שנה אני בחינוך, ושם למדתי להסביר דברים מסובכים בפשטות. היום אני בונה לעסקים מערכות ניהול, אוטומציות וסוכני AI. לפני שכותבים שורת קוד, אני לומד איך העסק שלכם עובד באמת ואיפה הולך הזמן. ואתם עובדים ישירות מולי, מהשיחה הראשונה ועד שהכל רץ בשגרה.</p>
+    <p style="font-size:18px;line-height:1.65;color:#D2D5DE">אני רובי. יש לי יותר מ-15 שנה בחינוך, ומשם הבאתי את מה שהכי חסר בעולם הטכנולוגיה: להקשיב, לפרק דבר מסובך לצעדים פשוטים, וללוות עד שזה עובד. את הפרויקט הראשון שלי בניתי להדס, מומחית שיווק דיגיטלי: דשבורד שמנהל את כל הלקוחות שלה, עם סוכני AI שכותבים ובודקים תוכן בסגנון של כל לקוח. כך אני עובד עם כל עסק: קודם מבין איך הוא עובד ואיפה הולך הזמן, ורק אחר כך בונה. ואתם מדברים ישירות איתי, מהשיחה הראשונה ועד שהכל רץ.</p>
   </div>
   <ol class="steps">
     <li class="step"><span class="st-n">1</span><div class="st-b"><div class="st-h"><h3>שיחת היכרות</h3><span>חינם</span></div><p>מספרים לי מה מציק ואני אומר בכנות אם יש פתרון ששווה את הזמן והכסף.</p></div></li>
@@ -786,7 +790,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
           <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq3.sign}}</span>
         </button>
         <sc-if value="{{faq3.open}}" hint-placeholder-val="{{false}}">
-          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px"><mark class="todo">[להשלים: פרויקטים מתחילים מ-___ ₪.]</mark> המחיר הסופי תלוי בגודל הפרויקט. אחרי שיחת ההיכרות תקבלו הצעה מסודרת עם מחיר קבוע ולוח זמנים, בלי הפתעות.</p>
+          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה פשוטה מתחילה מ-1,200 ₪, ואתר תדמית עם פאנל ניהול מ-2,900 ₪. אלה מחירי השקה ללקוחות הראשונים. אחרי שיחת ההיכרות תקבלו הצעה עם מחיר קבוע מראש ולוח זמנים, בלי הפתעות.</p>
         </sc-if>
       </div>
       <div style="border-bottom:1px solid rgba(255,255,255,0.1)">
@@ -795,7 +799,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
           <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq5.sign}}</span>
         </button>
         <sc-if value="{{faq5.open}}" hint-placeholder-val="{{false}}">
-          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px"><mark class="todo">[להשלים: פרויקט טיפוסי לוקח ___.]</mark> לוח הזמנים המדויק מופיע בהצעת המחיר, ואתם רואים את ההתקדמות לאורך כל הדרך.</p>
+          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה פשוטה עולה לאוויר בדרך כלל תוך שבוע. אתר, דשבורד או סוכן AI לוקחים בדרך כלל שבועיים עד ארבעה. לוח הזמנים המדויק מופיע בהצעת המחיר, ואתם רואים את ההתקדמות לאורך כל הדרך.</p>
         </sc-if>
       </div>
       <div style="border-bottom:1px solid rgba(255,255,255,0.1)">
@@ -819,14 +823,14 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
     <div style="display:flex;flex-direction:column;gap:14px">
       <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מתחילים כאן</span>
       <h2 style="font-size:clamp(34px,4.6vw,60px);font-weight:800;line-height:1.06;color:#FFFFFF">בואו נדבר<br><span style="color:var(--accent)">שיחת היכרות חינם</span></h2>
-      <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">נדבר על מה שגוזל לכם זמן ונבדוק יחד אם יש פתרון שמתאים לעסק שלכם. בלי התחייבות.</p>
+      <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">ספרו לי מה גוזל לכם זמן, ונבדוק יחד אם יש פתרון ששווה לכם את ההשקעה. בלי התחייבות.</p>
     </div>
     <a class="cta ct-main" href="{{waHref}}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:18px 30px;border-radius:999px;font-weight:800;font-size:19px"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.8-4.5-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"></path></svg>דברו איתי בוואטסאפ</a>
     <div class="ct-links">
       <a class="contact-line" href="{{telHref}}"><span>טלפון</span><b dir="ltr">{{phoneDisplay}}</b></a>
       <a class="contact-line" href="{{mailHref}}"><span>מייל</span><b dir="ltr">{{email}}</b></a>
     </div>
-    <p style="font-size:16px;line-height:1.6;color:#A9ADBA">רוצים קודם ייעוץ ממוקד על המערכות שלכם או על הצעד הראשון עם AI? יש גם פגישת ייעוץ בתשלום: 30 דקות ב-<mark class="todo">[להשלים: ___ ₪]</mark> או 60 דקות ב-<mark class="todo">[להשלים: ___ ₪]</mark>.</p>
+    <p style="font-size:16px;line-height:1.6;color:#A9ADBA">רוצים קודם ייעוץ ממוקד על המערכות שלכם או על הצעד הראשון עם AI? יש גם פגישת ייעוץ בתשלום: 30 דקות ב-200 ₪ או 60 דקות ב-350 ₪.</p>
     <div class="panel" style="padding:30px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:24px">
       <h3 style="font-size:28px;font-weight:800;color:#FFFFFF">או השאירו פרטים</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px">
@@ -861,7 +865,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"לילה","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":true,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"לילה","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":true,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -1089,7 +1093,7 @@ class Component extends DCLogic {
     startOnce();
   }
   getWords() {
-    return String(this.props.heroWords ?? 'דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
+    return String(this.props.heroWords ?? 'מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
   }
   waNumber() {
     const digits = String(this.props.phone ?? '0547714300').replace(/[^0-9]/g, '');
@@ -1152,7 +1156,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const p = this.props;
-    const words = String(p.heroWords ?? 'דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
+    const words = String(p.heroWords ?? 'מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
     const word = this.state.typed ?? '';
     const themes = {
       'לילה': { bg: '#07080C', bg2: '#0A0B10', card: '#0E1017', card2: '#12141C', inset: '#0C0E14' },
