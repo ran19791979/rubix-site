@@ -364,7 +364,7 @@ class Component extends DCLogic {
       mailHref: 'mailto:' + email,
       showTools: on(p.showTools), showWork: on(p.showWork), showStories: on(p.showStories),
       showAnalyzer: on(p.showAnalyzer), showRoi: on(p.showRoi), showAbout: on(p.showAbout),
-      showFaq: on(p.showFaq), showWhatsapp: on(p.showWhatsapp),
+      showFaq: on(p.showFaq), showWhatsapp: on(p.showWhatsapp), showTestimonials: on(p.showTestimonials),
       tab0: tabFor(0), tab1: tabFor(1), tab2: tabFor(2), tab3: tabFor(3), tab4: tabFor(4), tab5: tabFor(5), tab6: tabFor(6), tab7: tabFor(7),
       story0: this.state.story === 0, story1: this.state.story === 1, story2: this.state.story === 2, story3: this.state.story === 3, story4: this.state.story === 4, story5: this.state.story === 5, story6: this.state.story === 6, story7: this.state.story === 7,
       faq0: faqFor(0), faq1: faqFor(1), faq2: faqFor(2), faq3: faqFor(3), faq4: faqFor(4), faq5: faqFor(5),
@@ -394,7 +394,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": true, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": true, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');
