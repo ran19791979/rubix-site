@@ -5,7 +5,7 @@ class DCLogic { constructor(p) { this.props = p; this.state = {}; } setState(u) 
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
+    this.state = { prAll: false, mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
   }
   componentDidMount() {
     document.addEventListener('scroll', (e) => {
@@ -343,6 +343,10 @@ class Component extends DCLogic {
     const saved = Math.round(hours * team * 4.33 * (eff / 100));
     const money = saved * wage;
     return {
+      prAll: this.state.prAll,
+      prAllStr: this.state.prAll ? 'true' : 'false',
+      prBtn: this.state.prAll ? 'פחות מחירים' : 'כל המחירים (עוד 6 שירותים)',
+      togglePr: () => this.setState({ prAll: !this.state.prAll }),
       modeStories: this.state.mode === 'stories',
       modeRoi: this.state.mode === 'roi',
       segA: { bg: this.state.mode === 'stories' ? 'var(--accent)' : 'transparent', fg: this.state.mode === 'stories' ? 'var(--bg)' : '#D2D5DE' },
@@ -399,7 +403,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": true, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');

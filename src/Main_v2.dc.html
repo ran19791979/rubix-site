@@ -266,6 +266,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 .skip-link:focus{transform:none;color:#07080C}
 .motion-btn{align-self:flex-start;background:none;border:0;padding:8px 0;min-height:44px;font-family:inherit;font-size:14px;font-weight:600;color:#A9ADBA;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .motion-btn:hover{color:#FFFFFF}
+.pr-group{display:flex;align-items:center;gap:14px;font-size:20px;font-weight:800;color:var(--accent)}
+.pr-group::after{content:"";flex:1;height:1px;background:color-mix(in srgb,var(--accent) 35%,transparent)}
 .ct-links{display:flex;flex-wrap:wrap;gap:12px}
 .ct-links .contact-line{display:flex;flex-direction:column;gap:2px;padding:14px 18px;border-radius:18px;border:1px solid rgba(255,255,255,0.12);min-width:0}
 .ct-links .contact-line span{font-size:13px;color:#A9ADBA;font-weight:600}
@@ -364,7 +366,6 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <p class="rise" style="--d:210ms;font-size:clamp(19px,1.6vw,22px);line-height:1.7;color:#C4C8D2;max-width:600px">העבודה שחוזרת על עצמה כל יום יכולה לרוץ לבד. אני מתאים לכם את הכלים שעושים אותה ומלווה אתכם עד שהם נכנסים לשגרה.</p>
       <div class="rise" style="--d:280ms;display:flex;gap:14px;flex-wrap:wrap;padding-top:4px">
         <a class="cta" href="#contact" style="padding:18px 34px;border-radius:999px;font-weight:800;font-size:19px">לשיחת היכרות חינם</a>
-        <a class="ghost-strong" href="#work" style="padding:18px 34px;border-radius:999px;font-weight:700;font-size:19px">צפו בעבודות ↓</a>
       </div>
       <p class="rise" style="--d:340ms;font-size:16px;font-weight:600;color:#A9ADBA">שיחת היכרות קצרה, בלי התחייבות · ישירות מולי, בלי מתווכים</p>
       <button type="button" class="motion-btn" onClick="{{toggleMotion}}" aria-pressed="{{paused}}">{{motionLabel}}</button>
@@ -402,7 +403,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <div class="sec" style="max-width:1280px;margin:0 auto;padding:130px 32px;display:flex;flex-direction:column;gap:56px">
     <div style="display:flex;flex-direction:column;gap:18px;max-width:760px">
       <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">עבודות נבחרות · סרטונים של 35 שניות</span>
-      <h2 style="font-size:clamp(34px,4.6vw,62px);font-weight:800;line-height:1.08;color:#FFFFFF">עבודות שפיתחתי<br><span style="color:#7C8190">תראו אותן בפעולה</span></h2>
+      <h2 style="font-size:clamp(34px,4.6vw,62px);font-weight:800;line-height:1.08;color:#FFFFFF">עבודות שיצרתי<br><span style="color:#7C8190">ככה זה נראה בפועל</span></h2>
     </div>
 
     <div class="wk-hint" aria-hidden="true">החליקו לעוד עבודות ←</div>
@@ -492,7 +493,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
     <div class="card sv-tile" style="border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge)">
       <span class="mono" style="font-size:15px;font-weight:700;color:var(--accent)">02</span>
       <h3 style="font-size:20px;font-weight:800;color:#FFFFFF;line-height:1.25">אוטומציות וסוכני AI</h3>
-      <p style="font-size:16px;line-height:1.5;color:#C4C8D2">העבודה החוזרת קורית לבד</p>
+      <p style="font-size:16px;line-height:1.5;color:#C4C8D2">העבודה החוזרת מתרחשת לבד ללא שום תיווך</p>
     </div>
     <div class="card sv-tile" style="border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge)">
       <span class="mono" style="font-size:15px;font-weight:700;color:var(--accent)">03</span>
@@ -769,27 +770,32 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="pricing" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:32px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:780px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מחירים</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מחירי השקה<br><span style="color:#7C8190">סופיים, בלי מע״מ</span></h2>
-    <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">אלה מחירים ללקוחות הראשונים. אני עוסק פטור, כך שהמחיר שאתם רואים הוא המחיר שאתם משלמים. המחיר הסופי נקבע מראש, אחרי שיחת ההיכרות.</p>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מחירי השקה<br><span style="color:#7C8190">סופיים, ללא תוספת מע״מ</span></h2>
+    <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">אלה מחירים ללקוחות הראשונים. אני עוסק פטור ולא גובה מע״מ, ולכן המחיר שאתם רואים הוא המחיר שאתם משלמים. המחיר הסופי נקבע מראש בשיחת ההיכרות.</p>
   </div>
-  <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">להתחיל בקטן</h3>
+  <h3 class="pr-group">להתחיל בקטן</h3>
   <div class="pr-grid">
-    <div class="card pr"><div class="pr-top"><h3>אוטומציה אחת</h3><span class="pr-p">700 ₪</span></div><p>פעולה אחת שקורית לבד. למשל כל פנייה מהטופס נשמרת בגיליון.</p></div>
+    <div class="card pr"><div class="pr-top"><h3>אוטומציה אחת</h3><span class="pr-p">700 ₪</span></div><p>פעולה אחת שמתרחשת לבד. למשל כל פנייה מהטופס נשמרת בגיליון.</p></div>
     <div class="card pr"><div class="pr-top"><h3>דף נחיתה קצר</h3><span class="pr-p">990 ₪</span></div><p>עמוד אחד עם הצעה אחת וכפתור שמוביל ישר לוואטסאפ.</p></div>
     <div class="card pr"><div class="pr-top"><h3>דשבורד פשוט</h3><span class="pr-p">1,500 ₪</span></div><p>מסך אחד שמציג בצורה ברורה את הנתונים מהגיליון שכבר יש לכם.</p></div>
   </div>
-  <h3 style="font-size:24px;font-weight:800;color:#FFFFFF;padding-top:12px">פרויקטים מלאים</h3>
+  <h3 class="pr-group" style="padding-top:12px">פרויקטים מלאים</h3>
   <div class="pr-grid">
     <div class="card pr"><div class="pr-top"><h3>אוטומציה פשוטה</h3><span class="pr-p">מ-1,000 ₪</span></div><p>חיבור בין שתי מערכות. למשל: פנייה מהאתר נכנסת לגיליון ושולחת לכם התראה.</p></div>
     <div class="card pr"><div class="pr-top"><h3>אוטומציה מורכבת מבוססת סוכנים</h3><span class="pr-p">מ-2,500 ₪</span></div><p>תהליך שלם מקצה לקצה: ניהול לידים, הצעות מחיר, תזכורות ועוד.</p></div>
+    <div class="card pr"><div class="pr-top"><h3>סוכן AI</h3><span class="pr-p">מ-3,000 ₪</span></div><p>עונה ללקוחות בוואטסאפ, קובע תורים, ומעביר אליכם רק את מה שצריך אתכם.</p></div>
+  </div>
+  <sc-if value="{{prAll}}" hint-placeholder-val="{{false}}">
+  <div class="pr-grid panel-in">
     <div class="card pr"><div class="pr-top"><h3>דף נחיתה</h3><span class="pr-p">מ-1,500 ₪</span></div><p>עמוד אחד ממוקד, מותאם לטלפון, עם טופס שמגיע ישר לוואטסאפ.</p></div>
     <div class="card pr"><div class="pr-top"><h3>אתר תדמית ומידע</h3><span class="pr-p">מ-2,900 ₪</span></div><p>4 עד 8 עמודים, מהיר ונקי, שמציג את העסק כמו שצריך.</p></div>
-    <div class="card pr"><div class="pr-top"><h3>סוכן AI</h3><span class="pr-p">מ-3,000 ₪</span></div><p>עונה ללקוחות בוואטסאפ, קובע תורים, ומעביר אליכם רק את מה שצריך אתכם.</p></div>
     <div class="card pr"><div class="pr-top"><h3>דשבורד לניהול</h3><span class="pr-p">מ-3,500 ₪</span></div><p>כל הלקוחות, המשימות והנתונים במסך אחד. אפשר גם עם סוכני AI מובנים.</p></div>
     <div class="card pr"><div class="pr-top"><h3>סדנת AI לצוות</h3><span class="pr-p">1,800 ₪</span></div><p>2 עד 3 שעות, סביב המשימות האמיתיות שלכם. כל אחד יוצא עם כלים לשימוש מיידי.</p></div>
     <div class="card pr"><div class="pr-top"><h3>פגישת עבודה אישית</h3><span class="pr-p">250 ₪</span></div><p>שעה אחת שבה עובדים יחד: מסדרים תהליך בעסק או לומדים כלי AI.</p></div>
     <div class="card pr"><div class="pr-top"><h3>תמיכה חודשית</h3><span class="pr-p">מ-200 ₪ לחודש</span></div><p>מעקב, גיבויים ותיקונים קטנים, כדי שהכל ימשיך לרוץ בלי דאגות.</p></div>
   </div>
+  </sc-if>
+  <button type="button" class="ghost-strong press" onClick="{{togglePr}}" aria-expanded="{{prAllStr}}" style="align-self:flex-start;padding:14px 26px;border-radius:999px;font-weight:700;font-size:17px;cursor:pointer;font-family:inherit">{{prBtn}}</button>
   <p style="font-size:15px;line-height:1.6;color:#A9ADBA">עלויות של כלים חיצוניים, כמו מנוי ל-Make, וואטסאפ עסקי או שימוש ב-AI, משולמות בנפרד וישירות לספק. ברוב העסקים הקטנים מדובר בעשרות שקלים בחודש.</p>
   <a class="cta" href="#contact" style="align-self:flex-start;padding:16px 30px;border-radius:999px;font-weight:800;font-size:18px">לשיחת היכרות חינם</a>
 </div>
@@ -836,7 +842,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
           <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq3.sign}}</span>
         </button>
         <sc-if value="{{faq3.open}}" hint-placeholder-val="{{false}}">
-          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה פשוטה מ-1,000 ₪, אתר תדמית מ-2,900 ₪ וסוכן AI מ-3,000 ₪. כל המחירים מופיעים <a href="#pricing">במחירון</a>, והם סופיים, בלי מע״מ. אחרי שיחת ההיכרות תקבלו הצעה עם מחיר קבוע מראש ולוח זמנים, בלי הפתעות.</p>
+          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה פשוטה מ-1,000 ₪, אתר תדמית מ-2,900 ₪ וסוכן AI מ-3,000 ₪. כל המחירים מופיעים <a href="#pricing">במחירון</a>, והם סופיים ללא תוספת מע״מ. אחרי שיחת ההיכרות תקבלו הצעה עם מחיר קבוע מראש ולוח זמנים, בלי הפתעות.</p>
         </sc-if>
       </div>
       <div style="border-bottom:1px solid rgba(255,255,255,0.1)">
@@ -914,11 +920,11 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"לילה","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":true,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"לילה","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
+    this.state = { prAll: false, mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
   }
   componentDidMount() {
     document.addEventListener('scroll', (e) => {
@@ -1256,6 +1262,10 @@ class Component extends DCLogic {
     const saved = Math.round(hours * team * 4.33 * (eff / 100));
     const money = saved * wage;
     return {
+      prAll: this.state.prAll,
+      prAllStr: this.state.prAll ? 'true' : 'false',
+      prBtn: this.state.prAll ? 'פחות מחירים' : 'כל המחירים (עוד 6 שירותים)',
+      togglePr: () => this.setState({ prAll: !this.state.prAll }),
       modeStories: this.state.mode === 'stories',
       modeRoi: this.state.mode === 'roi',
       segA: { bg: this.state.mode === 'stories' ? 'var(--accent)' : 'transparent', fg: this.state.mode === 'stories' ? 'var(--bg)' : '#D2D5DE' },
