@@ -5,7 +5,7 @@ class DCLogic { constructor(p) { this.props = p; this.state = {}; } setState(u) 
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
+    this.state = { prAll: false, mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
   }
   componentDidMount() {
     document.addEventListener('scroll', (e) => {
@@ -76,7 +76,7 @@ class Component extends DCLogic {
     if (cs) { vv.style.setProperty('--accent', cs.getPropertyValue('--accent').trim() || '#C8F45A'); vv.style.setProperty('--bg', cs.getPropertyValue('--bg').trim() || '#07080C'); }
     vv.innerHTML = '<button type="button" class="vv-x" aria-label="סגירה"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>'
       + '<div class="vv-box"><div class="vv-title"></div><div class="vv-frame"><video class="vv-video" playsinline webkit-playsinline controls preload="none"></video><div class="vv-spin"></div><button type="button" class="vv-sound" hidden>🔊 הפעלת סאונד</button></div>'
-      + '<div class="vv-ctas"><a class="cta vv-wa" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a><a class="ghost-strong vv-cta" href="#contact">או השאירו פרטים</a></div></div>';
+      + '<div class="vv-ctas"><a class="cta vv-wa" target="_blank" rel="noopener">לשיחה בוואטסאפ</a><a class="ghost-strong vv-cta" href="#contact">או להשאיר פרטים</a></div></div>';
     document.body.appendChild(vv);
     const v = vv.querySelector('video');
     const spin = vv.querySelector('.vv-spin');
@@ -341,6 +341,9 @@ class Component extends DCLogic {
     const saved = Math.round(hours * team * 4.33 * (eff / 100));
     const money = saved * wage;
     return {
+      prAll: this.state.prAll,
+      prBtn: this.state.prAll ? 'פחות' : 'כל המחירים, 9 שירותים',
+      togglePr: () => this.setState({ prAll: !this.state.prAll }),
       modeStories: this.state.mode === 'stories',
       modeRoi: this.state.mode === 'roi',
       segA: { bg: this.state.mode === 'stories' ? 'var(--accent)' : 'transparent', fg: this.state.mode === 'stories' ? 'var(--bg)' : '#D2D5DE' },
@@ -394,7 +397,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": true, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');
@@ -468,7 +471,7 @@ document.addEventListener('click', (e) => {
   if (!name || (hasMail && !mail) || (needPhone && !v('f-phone')) || !need) {
     let t = document.getElementById('form-toast');
     if (!t) { t = document.createElement('div'); t.id = 'form-toast'; t.setAttribute('role', 'status'); t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:300;background:#111319;color:#fff;font:700 16px Heebo,sans-serif;padding:14px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.16);box-shadow:0 20px 50px -14px rgba(0,0,0,0.85)'; document.body.appendChild(t); }
-    t.textContent = hasMail ? 'נא למלא שם, מייל ומה הייתם רוצים לבנות' : 'נא למלא שם טלפון ומה הייתם רוצים לבנות'; t.hidden = false;
+    t.textContent = hasMail ? 'נא למלא שם, מייל ומה היית רוצה לשפר' : 'נא למלא שם, טלפון ומה היית רוצה לשפר'; t.hidden = false;
     clearTimeout(t._h); t._h = setTimeout(() => { t.hidden = true; }, 2800);
     return;
   }
