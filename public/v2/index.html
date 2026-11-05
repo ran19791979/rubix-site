@@ -274,6 +274,10 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 .tm figcaption{display:flex;flex-direction:column;gap:2px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08)}
 .tm figcaption b{font-size:18px;font-weight:800;color:#FFFFFF}
 .tm figcaption span{font-size:15px;color:#A9ADBA}
+.skip-link{position:fixed;top:10px;inset-inline-start:10px;z-index:300;padding:12px 18px;border-radius:12px;background:var(--accent);color:#07080C;font-weight:800;transform:translateY(-200%)}
+.skip-link:focus{transform:none;color:#07080C}
+.motion-btn{align-self:flex-start;background:none;border:0;padding:8px 0;min-height:44px;font-family:inherit;font-size:14px;font-weight:600;color:#A9ADBA;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.motion-btn:hover{color:#FFFFFF}
 .ct-links{display:flex;flex-wrap:wrap;gap:12px}
 .ct-links .contact-line{display:flex;flex-direction:column;gap:2px;padding:14px 18px;border-radius:18px;border:1px solid rgba(255,255,255,0.12);min-width:0}
 .ct-links .contact-line span{font-size:13px;color:#A9ADBA;font-weight:600}
@@ -314,6 +318,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 <div class="{{rootClass}}" style="--accent:{{accent}};--bg:{{th.bg}};--bg2:{{th.bg2}};--card:{{th.card}};--card2:{{th.card2}};--inset:{{th.inset}};--display:{{displayFont}};--glass:color-mix(in srgb,var(--card) 64%,transparent);--glass-edge:rgba(255,255,255,0.10);width:100%;min-height:100vh;background:var(--bg);overflow:hidden">
 
+<a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
 <div class="ambient" aria-hidden="true"></div>
 
 <sc-if value="{{showWhatsapp}}" hint-placeholder-val="{{true}}">
@@ -326,16 +331,16 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div aria-hidden="true" style="position:fixed;top:0;right:0;left:0;height:3px;background:var(--accent);z-index:95;pointer-events:none;transform-origin:right center;transform:scaleX({{progScale}});will-change:transform"></div>
 
 <!-- NAV -->
-<div style="position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 58%,transparent);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(255,255,255,0.07)">
+<header style="position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 58%,transparent);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(255,255,255,0.07)">
   <div class="navbar" style="max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px">
     <a href="#top" aria-label="Rubix Solutions" style="display:flex;align-items:center;gap:10px;color:#FFFFFF"><svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink:0"><rect x="0" y="0" width="40" height="40" rx="11" style="fill:var(--accent)"></rect><g fill="none" style="stroke:var(--bg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 30V10h8a6 6 0 010 12h-8"></path><path d="M20 22l7 8"></path></g><g style="fill:var(--bg)"><circle cx="13" cy="30" r="3.2"></circle><circle cx="27" cy="30" r="3.2"></circle><circle cx="13" cy="10" r="3.2"></circle></g><circle cx="13" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="27" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="13" cy="10" r="1.3" style="fill:var(--accent)"></circle></svg><span dir="ltr" style="font-family:'Heebo',sans-serif;font-size:21px;line-height:1;white-space:nowrap;color:#FFFFFF"><span style="font-weight:800;letter-spacing:-0.01em">Rubix</span> <span style="font-weight:500;color:#C4C8D2">Solutions</span></span></a>
-    <div class="navlinks" style="display:flex;gap:30px">
+    <nav class="navlinks" aria-label="ראשי" style="display:flex;gap:30px">
       <a class="nav" href="#work">עבודות</a>
       <a class="nav" href="#stories">מה זה חוסך</a>
       <a class="nav" href="#process">איך עובדים</a>
       <a class="nav" href="#pricing">מחירים</a>
       <a class="nav" href="#faq">שאלות</a>
-    </div>
+    </nav>
     <div style="display:flex;align-items:center;gap:10px">
       <a class="cta nav-cta" href="#contact" style="padding:12px 24px;border-radius:999px;font-weight:800;font-size:17px;white-space:nowrap">בואו נדבר</a>
       <button type="button" class="menu-btn press" onClick="{{toggleMenu}}" aria-label="תפריט" aria-expanded="{{menuOpen}}" style="display:none;width:46px;height:46px;border-radius:16px;border:1px solid rgba(255,255,255,0.16);background:var(--card);align-items:center;justify-content:center;cursor:pointer;padding:0">
@@ -354,8 +359,9 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <a class="cta" href="#contact" onClick="{{closeMenu}}" style="margin-top:18px;padding:16px 24px;border-radius:999px;font-weight:800;font-size:18px;text-align:center">בואו נדבר</a>
     </div>
   </sc-if>
-</div>
+</header>
 
+<main id="main">
 <!-- HERO -->
 <div id="top" class="grid-bg" style="position:relative;border-bottom:1px solid rgba(255,255,255,0.08)">
   <div class="glow-a" style="top:-220px;right:-160px"></div>
@@ -377,6 +383,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <a class="ghost-strong" href="#work" style="padding:18px 34px;border-radius:999px;font-weight:700;font-size:19px">צפו בעבודות ↓</a>
       </div>
       <p class="rise" style="--d:340ms;font-size:16px;font-weight:600;color:#A9ADBA">שיחת היכרות קצרה, בלי התחייבות · ישירות מולי, בלי מתווכים</p>
+      <button type="button" class="motion-btn" onClick="{{toggleMotion}}" aria-pressed="{{paused}}">{{motionLabel}}</button>
     </div>
   </div>
 </div>
@@ -909,14 +916,17 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 </div>
 
 
+</main>
+
 <!-- FOOTER -->
-<div style="border-top:1px solid rgba(255,255,255,0.08)">
+<footer style="border-top:1px solid rgba(255,255,255,0.08)">
   <div style="max-width:1280px;margin:0 auto;padding:36px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
     <span style="display:flex;align-items:center;gap:10px"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink:0"><rect x="0" y="0" width="40" height="40" rx="11" style="fill:var(--accent)"></rect><g fill="none" style="stroke:var(--bg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 30V10h8a6 6 0 010 12h-8"></path><path d="M20 22l7 8"></path></g><g style="fill:var(--bg)"><circle cx="13" cy="30" r="3.2"></circle><circle cx="27" cy="30" r="3.2"></circle><circle cx="13" cy="10" r="3.2"></circle></g><circle cx="13" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="27" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="13" cy="10" r="1.3" style="fill:var(--accent)"></circle></svg><span dir="ltr" style="font-family:'Heebo',sans-serif;font-size:19px;line-height:1;white-space:nowrap;color:#FFFFFF"><span style="font-weight:800;letter-spacing:-0.01em">Rubix</span> <span style="font-weight:500;color:#C4C8D2">Solutions</span></span></span>
     <span style="font-size:16px;color:#7C8190">© 2026 Rubix Solutions · דשבורדים · אתרים · אוטומציות · סוכני AI</span>
+    <a href="negishut.html" style="font-size:15px;font-weight:700;color:#C4C8D2;text-decoration:underline;text-underline-offset:3px">הצהרת נגישות</a>
     <span style="font-size:13px;color:#8E93A1;width:100%">המוזיקה בסרטונים: הלחנה מקורית עם דגימות FluidR3 GM של Frank Wen (CC BY 3.0)</span>
   </div>
-</div>
+</footer>
 
 </div>
 </template>

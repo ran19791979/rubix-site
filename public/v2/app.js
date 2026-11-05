@@ -16,9 +16,10 @@ class Component extends DCLogic {
       if (n !== this.state.wk) this.setState({ wk: n });
     }, true);
     this.tw = { wi: 0, n: 0, del: false };
-    const tick = () => {
+    const tick = this.tick = () => {
       const words = this.getWords();
       if (!words.length) { this.twTimer = setTimeout(tick, 500); return; }
+      if (this.state.paused) { this.setState({ typed: words[this.tw.wi % words.length] }); return; }
       const t = this.tw;
       const w = words[t.wi % words.length];
       let delay;
@@ -41,6 +42,7 @@ class Component extends DCLogic {
       this.setState({ typed: cur.slice(0, t.n) });
       this.twTimer = setTimeout(tick, delay);
     };
+    try { if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) this.setState({ paused: true }); } catch (e) {}
     this.twTimer = setTimeout(tick, 400);
     this.onScroll = () => {
       if (this.raf) return;
@@ -350,7 +352,10 @@ class Component extends DCLogic {
       wkPos: this.state.wk + ' מתוך 4',
       accent: p.accent ?? '#C8F45A',
       th, displayFont,
-      rootClass: on(p.animations) ? '' : 'calm',
+      rootClass: on(p.animations) && !this.state.paused ? '' : 'calm',
+      paused: this.state.paused ? 'true' : 'false',
+      motionLabel: this.state.paused ? 'הפעלת אנימציות' : 'עצירת אנימציות',
+      toggleMotion: () => { const np = !this.state.paused; this.setState({ paused: np }); clearTimeout(this.twTimer); this.twTimer = setTimeout(this.tick, np ? 0 : 400); },
       progW: this.state.prog.toFixed(1) + '%',
       progScale: (this.state.prog / 100).toFixed(4),
       menuOpen: this.state.menu,
