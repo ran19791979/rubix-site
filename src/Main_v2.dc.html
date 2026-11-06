@@ -417,9 +417,19 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
     <div class="wk-hint" aria-hidden="true">החליקו לעוד עבודות ←</div>
     <div class="wk-rail">
 
-      <!-- Work 1: content desk (video) -->
+      <!-- Work 1: automation (video) -->
       <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
-        <button type="button" class="vbtn vprev" onClick="{{openV0}}" aria-label="צפו בסרטון של 35 שניות: מערכת לניהול תוכן ולקוחות"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/desk-still.jpg"><img src="media/desk-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span><span class="vdur">0:35</span></button>
+        <button type="button" class="vbtn vprev" onClick="{{openV0}}" aria-label="צפו בסרטון של 35 שניות: אוטומציה שממיינת פניות לפי דחיפות"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/automation-still.jpg"><img src="media/automation-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span><span class="vdur">0:35</span></button>
+        <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:15px;color:var(--accent);font-weight:800">אוטומציה · Make · הדגמה</span>
+          <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">אוטומציה שממיינת פניות לפי דחיפות</h3>
+          <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">כל פנייה מקבלת סיכום קצר וציון דחיפות. כל בוקר מגיע מייל עם 5 הפניות הכי דחופות.</p>
+        </div>
+      </div>
+
+      <!-- Work 2: content desk (video) -->
+      <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
+        <button type="button" class="vbtn vprev" onClick="{{openV1}}" aria-label="צפו בסרטון של 35 שניות: מערכת לניהול תוכן ולקוחות"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/desk-still.jpg"><img src="media/desk-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span><span class="vdur">0:35</span></button>
         <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
           <span style="font-size:15px;color:var(--accent);font-weight:800">דשבורד + סוכני AI</span>
           <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">מערכת לניהול תוכן ולקוחות</h3>
@@ -427,23 +437,13 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         </div>
       </div>
 
-      <!-- Work 2: AI editor agent (video) -->
+      <!-- Work 3: AI editor agent (video) -->
       <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
-        <button type="button" class="vbtn vprev" onClick="{{openV1}}" aria-label="צפו בסרטון של 35 שניות: סוכן AI שבודק ומתקן תוכן"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/agent-still.jpg"><img src="media/agent-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span><span class="vdur">0:35</span></button>
+        <button type="button" class="vbtn vprev" onClick="{{openV2}}" aria-label="צפו בסרטון של 35 שניות: סוכן AI שבודק ומתקן תוכן"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/agent-still.jpg"><img src="media/agent-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span><span class="vdur">0:35</span></button>
         <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
           <span style="font-size:15px;color:var(--accent);font-weight:800">סוכן AI · Make</span>
           <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">סוכן AI שבודק ומתקן תוכן</h3>
           <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">סוכן שבודק כל טיוטה מול פרופיל הלקוח ומתקן אותה לפני שהיא מגיעה אליכם.</p>
-        </div>
-      </div>
-
-      <!-- Work 3: automation (video) -->
-      <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
-        <button type="button" class="vbtn vprev" onClick="{{openV2}}" aria-label="צפו בסרטון של 35 שניות: אוטומציה שממיינת פניות לפי דחיפות"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/automation-still.jpg"><img src="media/automation-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span><span class="vdur">0:35</span></button>
-        <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:15px;color:var(--accent);font-weight:800">אוטומציה · Make · הדגמה</span>
-          <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">אוטומציה שממיינת פניות לפי דחיפות</h3>
-          <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">כל פנייה מקבלת סיכום קצר וציון דחיפות. כל בוקר מגיע מייל עם 5 הפניות הכי דחופות.</p>
         </div>
       </div>
 
@@ -1006,7 +1006,7 @@ class Component extends DCLogic {
     document.addEventListener('click', this.onVidTap, true);
   }
   vidsData() {
-    return [{"src": "media/desk.mp4#t=0.5", "poster": "media/desk-start.jpg", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/agent.mp4#t=0.5", "poster": "media/agent-start.jpg", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/automation.mp4#t=0.5", "poster": "media/automation-start.jpg", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/website.mp4#t=0.5", "poster": "media/website-start.jpg", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
+    return [{"src": "media/automation.mp4#t=0.5", "poster": "media/automation-start.jpg", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/desk.mp4#t=0.5", "poster": "media/desk-start.jpg", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/agent.mp4#t=0.5", "poster": "media/agent-start.jpg", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/website.mp4#t=0.5", "poster": "media/website-start.jpg", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
   }
   buildViewer() {
     if (this.vv) return this.vv;
