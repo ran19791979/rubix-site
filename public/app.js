@@ -17,7 +17,6 @@ class Component extends DCLogic {
     }, true);
     this.tw = { wi: 0, n: 0, del: false };
     const tick = this.tick = () => {
-      if (!document.querySelector('.caret')) return; // the hero line is static now (no typewriter on the page)
       const words = this.getWords();
       if (!words.length) { this.twTimer = setTimeout(tick, 500); return; }
       if (this.state.paused) { this.setState({ typed: words[this.tw.wi % words.length] }); return; }
@@ -51,9 +50,7 @@ class Component extends DCLogic {
         this.raf = null;
         const doc = document.documentElement;
         const max = Math.max(1, doc.scrollHeight - window.innerHeight);
-        const heroEl = document.getElementById('top');
-        const pastHero = heroEl ? heroEl.getBoundingClientRect().bottom < window.innerHeight * 0.45 : true;
-        this.setState({ prog: Math.min(100, Math.max(0, (window.scrollY / max) * 100)), pastHero });
+        this.setState({ prog: Math.min(100, Math.max(0, (window.scrollY / max) * 100)) });
       });
     };
     window.addEventListener('scroll', this.onScroll, { passive: true });
@@ -374,8 +371,6 @@ class Component extends DCLogic {
       phoneDisplay, email,
       telHref: 'tel:+' + intl,
       waHref: 'https://wa.me/' + intl,
-      fabCls: this.state.pastHero ? '' : 'fab-off',
-      waHi: 'https://wa.me/' + intl + '?text=' + encodeURIComponent('היי רובי, הגעתי מהאתר ואשמח לשיחת היכרות'),
       mailHref: 'mailto:' + email,
       showTools: on(p.showTools), showWork: on(p.showWork), showStories: on(p.showStories),
       showAnalyzer: on(p.showAnalyzer), showRoi: on(p.showRoi), showAbout: on(p.showAbout),
