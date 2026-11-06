@@ -66,7 +66,7 @@ class Component extends DCLogic {
     document.addEventListener('click', this.onVidTap, true);
   }
   vidsData() {
-    return [{"src": "../media/automation.mp4?v=1a67bd5e#t=0.5", "poster": "../media/automation-start.jpg?v=d308e178", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "../media/desk.mp4?v=545a95c9#t=0.5", "poster": "../media/desk-start.jpg?v=3af9e69a", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "../media/agent.mp4?v=688ddf9c#t=0.5", "poster": "../media/agent-start.jpg?v=5b3927f8", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "../media/website.mp4?v=5c1b9535#t=0.5", "poster": "../media/website-start.jpg?v=babd1c47", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
+    return [{"src": "../media/automation.mp4?v=1a67bd5e#t=0.5", "poster": "../media/automation-start.jpg?v=d308e178", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "../media/desk.mp4?v=545a95c9#t=0.5", "poster": "../media/desk-start.jpg?v=3af9e69a", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "../media/agent.mp4?v=688ddf9c#t=0.5", "poster": "../media/agent-start.jpg?v=5b3927f8", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "../media/website.mp4?v=5c1b9535#t=0.5", "poster": "../media/website-start.jpg?v=babd1c47", "title": "אתר שהעסק מעדכן לבד"}];
   }
   buildViewer() {
     if (this.vv) return this.vv;

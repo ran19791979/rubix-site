@@ -5,13 +5,21 @@ class DCLogic { constructor(p) { this.props = p; this.state = {}; } setState(u) 
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
+    this.state = { prAll: false, mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
   }
   componentDidMount() {
+    document.addEventListener('scroll', (e) => {
+      const r = e.target;
+      if (!r || !r.classList || !r.classList.contains('wk-rail') || !r.children.length) return;
+      const step = r.children[0].getBoundingClientRect().width + 14;
+      const n = Math.min(r.children.length, Math.max(1, Math.round(Math.abs(r.scrollLeft) / step) + 1));
+      if (n !== this.state.wk) this.setState({ wk: n });
+    }, true);
     this.tw = { wi: 0, n: 0, del: false };
-    const tick = () => {
+    const tick = this.tick = () => {
       const words = this.getWords();
       if (!words.length) { this.twTimer = setTimeout(tick, 500); return; }
+      if (this.state.paused) { this.setState({ typed: words[this.tw.wi % words.length] }); return; }
       const t = this.tw;
       const w = words[t.wi % words.length];
       let delay;
@@ -34,6 +42,7 @@ class Component extends DCLogic {
       this.setState({ typed: cur.slice(0, t.n) });
       this.twTimer = setTimeout(tick, delay);
     };
+    try { if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) this.setState({ paused: true }); } catch (e) {}
     this.twTimer = setTimeout(tick, 400);
     this.onScroll = () => {
       if (this.raf) return;
@@ -57,7 +66,7 @@ class Component extends DCLogic {
     document.addEventListener('click', this.onVidTap, true);
   }
   vidsData() {
-    return [{"src": "media/desk.mp4?v=545a95c9", "poster": "media/desk-poster.jpg?v=88cffc39", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/agent.mp4?v=688ddf9c", "poster": "media/agent-poster.jpg?v=80cf3a64", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/automation.mp4?v=1a67bd5e", "poster": "media/automation-poster.jpg?v=aaa957b1", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/website.mp4?v=5c1b9535", "poster": "media/website-poster.jpg?v=cb2a12df", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
+    return [{"src": "media/automation.mp4?v=1a67bd5e#t=0.5", "poster": "media/automation-start.jpg?v=d308e178", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/desk.mp4?v=545a95c9#t=0.5", "poster": "media/desk-start.jpg?v=3af9e69a", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/agent.mp4?v=688ddf9c#t=0.5", "poster": "media/agent-start.jpg?v=5b3927f8", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/website.mp4?v=5c1b9535#t=0.5", "poster": "media/website-start.jpg?v=babd1c47", "title": "אתר שהעסק מעדכן לבד"}];
   }
   buildViewer() {
     if (this.vv) return this.vv;
@@ -77,6 +86,7 @@ class Component extends DCLogic {
     const fab = document.querySelector('a.fab'); const waA = vv.querySelector('.vv-wa');
     if (fab && fab.href) waA.href = fab.href; else waA.href = '#contact';
     waA.addEventListener('click', () => this.closeVideo());
+    v.addEventListener('loadedmetadata', () => { if (v.currentTime < 0.5) { try { v.currentTime = 0.5; } catch (e) {} } });
     v.addEventListener('playing', () => { spin.hidden = true; });
     v.addEventListener('waiting', () => { spin.hidden = false; });
     v.addEventListener('pause', () => { spin.hidden = true; });
@@ -222,7 +232,7 @@ class Component extends DCLogic {
     startOnce();
   }
   getWords() {
-    return String(this.props.heroWords ?? 'דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
+    return String(this.props.heroWords ?? 'מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
   }
   waNumber() {
     const digits = String(this.props.phone ?? '0547714300').replace(/[^0-9]/g, '');
@@ -285,7 +295,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const p = this.props;
-    const words = String(p.heroWords ?? 'דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
+    const words = String(p.heroWords ?? 'מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
     const word = this.state.typed ?? '';
     const themes = {
       'לילה': { bg: '#07080C', bg2: '#0A0B10', card: '#0E1017', card2: '#12141C', inset: '#0C0E14' },
@@ -334,9 +344,23 @@ class Component extends DCLogic {
     const saved = Math.round(hours * team * 4.33 * (eff / 100));
     const money = saved * wage;
     return {
+      prAll: this.state.prAll,
+      prAllStr: this.state.prAll ? 'true' : 'false',
+      prBtn: this.state.prAll ? 'פחות מחירים' : 'כל המחירים (עוד 6 שירותים)',
+      togglePr: () => this.setState({ prAll: !this.state.prAll }),
+      modeStories: this.state.mode === 'stories',
+      modeRoi: this.state.mode === 'roi',
+      segA: { bg: this.state.mode === 'stories' ? 'var(--accent)' : 'transparent', fg: this.state.mode === 'stories' ? 'var(--bg)' : '#D2D5DE' },
+      segB: { bg: this.state.mode === 'roi' ? 'var(--accent)' : 'transparent', fg: this.state.mode === 'roi' ? 'var(--bg)' : '#D2D5DE' },
+      pickStories: () => this.setState({ mode: 'stories' }),
+      pickRoi: () => this.setState({ mode: 'roi' }),
+      wkPos: this.state.wk + ' מתוך 4',
       accent: p.accent ?? '#C8F45A',
       th, displayFont,
-      rootClass: on(p.animations) ? '' : 'calm',
+      rootClass: on(p.animations) && !this.state.paused ? '' : 'calm',
+      paused: this.state.paused ? 'true' : 'false',
+      motionLabel: this.state.paused ? 'הפעלת אנימציות' : 'עצירת אנימציות',
+      toggleMotion: () => { const np = !this.state.paused; this.setState({ paused: np }); clearTimeout(this.twTimer); this.twTimer = setTimeout(this.tick, np ? 0 : 400); },
       progW: this.state.prog.toFixed(1) + '%',
       progScale: (this.state.prog / 100).toFixed(4),
       menuOpen: this.state.menu,
@@ -350,10 +374,10 @@ class Component extends DCLogic {
       mailHref: 'mailto:' + email,
       showTools: on(p.showTools), showWork: on(p.showWork), showStories: on(p.showStories),
       showAnalyzer: on(p.showAnalyzer), showRoi: on(p.showRoi), showAbout: on(p.showAbout),
-      showFaq: on(p.showFaq), showWhatsapp: on(p.showWhatsapp),
+      showFaq: on(p.showFaq), showWhatsapp: on(p.showWhatsapp), showTestimonials: on(p.showTestimonials),
       tab0: tabFor(0), tab1: tabFor(1), tab2: tabFor(2), tab3: tabFor(3), tab4: tabFor(4), tab5: tabFor(5), tab6: tabFor(6), tab7: tabFor(7),
       story0: this.state.story === 0, story1: this.state.story === 1, story2: this.state.story === 2, story3: this.state.story === 3, story4: this.state.story === 4, story5: this.state.story === 5, story6: this.state.story === 6, story7: this.state.story === 7,
-      faq0: faqFor(0), faq1: faqFor(1), faq2: faqFor(2), faq3: faqFor(3), faq4: faqFor(4),
+      faq0: faqFor(0), faq1: faqFor(1), faq2: faqFor(2), faq3: faqFor(3), faq4: faqFor(4), faq5: faqFor(5),
       useEx0: useEx(0), useEx1: useEx(1), useEx2: useEx(2),
       desc: this.state.desc,
       setDesc: (e) => this.setState({ desc: e.target.value }),
@@ -380,7 +404,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "דשבורדים לניהול עסק, אתרי תדמית, אתרי מידע, אוטומציות לעסקים, סוכני AI", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": true, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');
@@ -454,7 +478,7 @@ document.addEventListener('click', (e) => {
   if (!name || (hasMail && !mail) || (needPhone && !v('f-phone')) || !need) {
     let t = document.getElementById('form-toast');
     if (!t) { t = document.createElement('div'); t.id = 'form-toast'; t.setAttribute('role', 'status'); t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:300;background:#111319;color:#fff;font:700 16px Heebo,sans-serif;padding:14px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.16);box-shadow:0 20px 50px -14px rgba(0,0,0,0.85)'; document.body.appendChild(t); }
-    t.textContent = hasMail ? 'נא למלא שם, מייל ומה הייתם רוצים לבנות' : 'נא למלא שם טלפון ומה הייתם רוצים לבנות'; t.hidden = false;
+    t.textContent = hasMail ? 'נא למלא שם, מייל ומה הייתם רוצים לבנות' : 'נא למלא שם, טלפון ומה הייתם רוצים לבנות'; t.hidden = false;
     clearTimeout(t._h); t._h = setTimeout(() => { t.hidden = true; }, 2800);
     return;
   }
