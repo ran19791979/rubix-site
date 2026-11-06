@@ -106,7 +106,7 @@ document.addEventListener('click', (e) => {
   if (!name || (hasMail && !mail) || (needPhone && !v('f-phone')) || !need) {
     let t = document.getElementById('form-toast');
     if (!t) { t = document.createElement('div'); t.id = 'form-toast'; t.setAttribute('role', 'status'); t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:300;background:#111319;color:#fff;font:700 16px Heebo,sans-serif;padding:14px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.16);box-shadow:0 20px 50px -14px rgba(0,0,0,0.85)'; document.body.appendChild(t); }
-    t.textContent = hasMail ? 'נא למלא שם, מייל ומה הייתם רוצים לבנות' : 'נא למלא שם טלפון ומה הייתם רוצים לבנות'; t.hidden = false;
+    t.textContent = hasMail ? 'נא למלא שם, מייל ומה הייתם רוצים לבנות' : 'נא למלא שם, טלפון ומה הייתם רוצים לבנות'; t.hidden = false;
     clearTimeout(t._h); t._h = setTimeout(() => { t.hidden = true; }, 2800);
     return;
   }
