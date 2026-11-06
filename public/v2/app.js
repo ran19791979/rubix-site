@@ -66,7 +66,7 @@ class Component extends DCLogic {
     document.addEventListener('click', this.onVidTap, true);
   }
   vidsData() {
-    return [{"src": "../media/desk.mp4?v=545a95c9", "poster": "../media/desk-poster.jpg?v=88cffc39", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "../media/agent.mp4?v=688ddf9c", "poster": "../media/agent-poster.jpg?v=80cf3a64", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "../media/automation.mp4?v=1a67bd5e", "poster": "../media/automation-poster.jpg?v=aaa957b1", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "../media/website.mp4?v=5c1b9535", "poster": "../media/website-poster.jpg?v=cb2a12df", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
+    return [{"src": "../media/desk.mp4?v=545a95c9#t=0.5", "poster": "../media/desk-start.jpg?v=3af9e69a", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "../media/agent.mp4?v=688ddf9c#t=0.5", "poster": "../media/agent-start.jpg?v=5b3927f8", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "../media/automation.mp4?v=1a67bd5e#t=0.5", "poster": "../media/automation-start.jpg?v=d308e178", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "../media/website.mp4?v=5c1b9535#t=0.5", "poster": "../media/website-start.jpg?v=babd1c47", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
   }
   buildViewer() {
     if (this.vv) return this.vv;
@@ -86,6 +86,7 @@ class Component extends DCLogic {
     const fab = document.querySelector('a.fab'); const waA = vv.querySelector('.vv-wa');
     if (fab && fab.href) waA.href = fab.href; else waA.href = '#contact';
     waA.addEventListener('click', () => this.closeVideo());
+    v.addEventListener('loadedmetadata', () => { if (v.currentTime < 0.5) { try { v.currentTime = 0.5; } catch (e) {} } });
     v.addEventListener('playing', () => { spin.hidden = true; });
     v.addEventListener('waiting', () => { spin.hidden = false; });
     v.addEventListener('pause', () => { spin.hidden = true; });

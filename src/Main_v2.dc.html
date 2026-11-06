@@ -770,8 +770,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="pricing" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:32px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:780px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מחירים</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מחירי השקה<br><span style="color:#7C8190">סופיים, ללא תוספת מע״מ</span></h2>
-    <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">אלה מחירים ללקוחות הראשונים. אני עוסק פטור ולא גובה מע״מ, ולכן המחיר שאתם רואים הוא המחיר שאתם משלמים. המחיר הסופי נקבע מראש בשיחת ההיכרות.</p>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מחירי השקה<br><span style="color:#7C8190">סופיים, אין מע״מ</span></h2>
+    <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">אלה מחירים ללקוחות הראשונים. אני עוסק פטור, ולכן לא גובה מע״מ בכלל. המחיר שמופיע כאן הוא המחיר הסופי שתשלמו, בלי שום תוספת. המחיר המדויק נקבע מראש בשיחת ההיכרות.</p>
   </div>
   <h3 class="pr-group">להתחיל בקטן</h3>
   <div class="pr-grid">
@@ -781,7 +781,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   </div>
   <h3 class="pr-group" style="padding-top:12px">פרויקטים מלאים</h3>
   <div class="pr-grid">
-    <div class="card pr"><div class="pr-top"><h3>אוטומציה פשוטה</h3><span class="pr-p">מ-1,000 ₪</span></div><p>חיבור בין שתי מערכות. למשל: פנייה מהאתר נכנסת לגיליון ושולחת לכם התראה.</p></div>
+    <div class="card pr"><div class="pr-top"><h3>תהליך אוטומטי קצר</h3><span class="pr-p">מ-1,000 ₪</span></div><p>כמה פעולות ברצף בין כמה מערכות. למשל פנייה נשמרת בגיליון, נכנסת ליומן ושולחת ללקוח אישור.</p></div>
     <div class="card pr"><div class="pr-top"><h3>אוטומציה מורכבת מבוססת סוכנים</h3><span class="pr-p">מ-2,500 ₪</span></div><p>תהליך שלם מקצה לקצה: ניהול לידים, הצעות מחיר, תזכורות ועוד.</p></div>
     <div class="card pr"><div class="pr-top"><h3>סוכן AI</h3><span class="pr-p">מ-3,000 ₪</span></div><p>עונה ללקוחות בוואטסאפ, קובע תורים, ומעביר אליכם רק את מה שצריך אתכם.</p></div>
   </div>
@@ -842,7 +842,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
           <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq3.sign}}</span>
         </button>
         <sc-if value="{{faq3.open}}" hint-placeholder-val="{{false}}">
-          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה פשוטה מ-1,000 ₪, אתר תדמית מ-2,900 ₪ וסוכן AI מ-3,000 ₪. כל המחירים מופיעים <a href="#pricing">במחירון</a>, והם סופיים ללא תוספת מע״מ. אחרי שיחת ההיכרות תקבלו הצעה עם מחיר קבוע מראש ולוח זמנים, בלי הפתעות.</p>
+          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה אחת מתחילה ב-700 ₪ ואתר תדמית ב-2,900 ₪. כל המחירים מופיעים <a href="#pricing">במחירון</a>, והם סופיים. אין עליהם מע״מ. אחרי שיחת ההיכרות תקבלו הצעה עם מחיר קבוע מראש ולוח זמנים, בלי הפתעות.</p>
         </sc-if>
       </div>
       <div style="border-bottom:1px solid rgba(255,255,255,0.1)">
@@ -851,7 +851,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
           <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq5.sign}}</span>
         </button>
         <sc-if value="{{faq5.open}}" hint-placeholder-val="{{false}}">
-          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה פשוטה עולה לאוויר בדרך כלל תוך שבוע. אתר, דשבורד או סוכן AI לוקחים בדרך כלל שבועיים עד ארבעה. לוח הזמנים המדויק מופיע בהצעת המחיר, ואתם רואים את ההתקדמות לאורך כל הדרך.</p>
+          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה קטנה עולה לאוויר בדרך כלל תוך שבוע. אתר, דשבורד או סוכן AI לוקחים בדרך כלל שבועיים עד ארבעה. לוח הזמנים המדויק מופיע בהצעת המחיר, ואתם רואים את ההתקדמות לאורך כל הדרך.</p>
         </sc-if>
       </div>
       <div style="border-bottom:1px solid rgba(255,255,255,0.1)">
@@ -985,7 +985,7 @@ class Component extends DCLogic {
     document.addEventListener('click', this.onVidTap, true);
   }
   vidsData() {
-    return [{"src": "media/desk.mp4", "poster": "media/desk-poster.jpg", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/agent.mp4", "poster": "media/agent-poster.jpg", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/automation.mp4", "poster": "media/automation-poster.jpg", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/website.mp4", "poster": "media/website-poster.jpg", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
+    return [{"src": "media/desk.mp4#t=0.5", "poster": "media/desk-start.jpg", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/agent.mp4#t=0.5", "poster": "media/agent-start.jpg", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/automation.mp4#t=0.5", "poster": "media/automation-start.jpg", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/website.mp4#t=0.5", "poster": "media/website-start.jpg", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
   }
   buildViewer() {
     if (this.vv) return this.vv;
@@ -1005,6 +1005,7 @@ class Component extends DCLogic {
     const fab = document.querySelector('a.fab'); const waA = vv.querySelector('.vv-wa');
     if (fab && fab.href) waA.href = fab.href; else waA.href = '#contact';
     waA.addEventListener('click', () => this.closeVideo());
+    v.addEventListener('loadedmetadata', () => { if (v.currentTime < 0.5) { try { v.currentTime = 0.5; } catch (e) {} } });
     v.addEventListener('playing', () => { spin.hidden = true; });
     v.addEventListener('waiting', () => { spin.hidden = false; });
     v.addEventListener('pause', () => { spin.hidden = true; });
