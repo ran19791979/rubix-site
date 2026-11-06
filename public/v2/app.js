@@ -15,6 +15,7 @@ class Component extends DCLogic {
       const n = Math.min(r.children.length, Math.max(1, Math.round(Math.abs(r.scrollLeft) / step) + 1));
       if (n !== this.state.wk) this.setState({ wk: n });
     }, true);
+    try { const bg = getComputedStyle(document.querySelector('[style*="--bg"]')).getPropertyValue('--bg').trim(); if (bg) { document.body.style.background = bg; const m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', bg); } } catch (e) {}
     this.tw = { wi: 0, n: 0, del: false };
     const tick = this.tick = () => {
       const words = this.getWords();
@@ -298,9 +299,9 @@ class Component extends DCLogic {
     const words = String(p.heroWords ?? 'מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
     const word = this.state.typed ?? '';
     const themes = {
-      'לילה': { bg: '#07080C', bg2: '#0A0B10', card: '#0E1017', card2: '#12141C', inset: '#0C0E14' },
-      'כחול עמוק': { bg: '#050A18', bg2: '#081028', card: '#0C1632', card2: '#111D3E', inset: '#0A1329' },
-      'גרפיט חם': { bg: '#0D0B09', bg2: '#12100D', card: '#191613', card2: '#201C18', inset: '#15120F' }
+      'לילה': { bg: '#07080C', bg2: '#0A0B10', card: '#0E1017', card2: '#12141C', inset: '#0C0E14', muted: '#7C8190' },
+      'כחול עמוק': { bg: '#0B1733', bg2: '#0E1D40', card: '#14264F', card2: '#1A2F5E', inset: '#102047', muted: '#8E98B3' },
+      'גרפיט חם': { bg: '#0D0B09', bg2: '#12100D', card: '#191613', card2: '#201C18', inset: '#15120F', muted: '#8A8378' }
     };
     const th = themes[p.theme ?? 'לילה'] || themes['לילה'];
     const fonts = {
@@ -404,7 +405,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "כחול עמוק", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');

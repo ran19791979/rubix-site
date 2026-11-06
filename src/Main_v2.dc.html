@@ -310,7 +310,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 </style>
 </helmet>
 
-<div class="{{rootClass}}" style="--accent:{{accent}};--bg:{{th.bg}};--bg2:{{th.bg2}};--card:{{th.card}};--card2:{{th.card2}};--inset:{{th.inset}};--display:{{displayFont}};--glass:color-mix(in srgb,var(--card) 64%,transparent);--glass-edge:rgba(255,255,255,0.10);width:100%;min-height:100vh;background:var(--bg);overflow:hidden">
+<div class="{{rootClass}}" style="--accent:{{accent}};--bg:{{th.bg}};--bg2:{{th.bg2}};--card:{{th.card}};--card2:{{th.card2}};--inset:{{th.inset}};--muted:{{th.muted}};--display:{{displayFont}};--glass:color-mix(in srgb,var(--card) 64%,transparent);--glass-edge:rgba(255,255,255,0.10);width:100%;min-height:100vh;background:var(--bg);overflow:hidden">
 
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
 <div class="ambient" aria-hidden="true"></div>
@@ -385,22 +385,22 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <sc-if value="{{showTools}}" hint-placeholder-val="{{true}}">
 <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:28px 0;overflow:hidden;background:var(--bg2)">
   <div class="track" style="display:flex;gap:56px;width:max-content;align-items:center">
-    <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Make.com<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Claude API<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Supabase<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Vercel<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">GitHub<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Lovable<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Google Workspace<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Canva<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Make.com<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Claude API<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Supabase<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Vercel<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">GitHub<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Lovable<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Google Workspace<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
-      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:#7C8190;white-space:nowrap">Canva<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+    <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Make.com<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Claude API<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Supabase<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Vercel<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">GitHub<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Lovable<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Google Workspace<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Canva<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Make.com<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Claude API<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Supabase<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Vercel<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">GitHub<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Lovable<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Google Workspace<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
+      <span style="display:flex;align-items:center;gap:56px;font-family:var(--display);font-size:23px;font-weight:800;color:var(--muted);white-space:nowrap">Canva<span style="width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.6"></span></span>
   </div>
 </div>
 </sc-if>
@@ -411,7 +411,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <div class="sec" style="max-width:1280px;margin:0 auto;padding:130px 32px;display:flex;flex-direction:column;gap:56px">
     <div style="display:flex;flex-direction:column;gap:18px;max-width:760px">
       <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">עבודות נבחרות · סרטונים של 35 שניות</span>
-      <h2 style="font-size:clamp(34px,4.6vw,62px);font-weight:800;line-height:1.08;color:#FFFFFF">עבודות שיצרתי<br><span style="color:#7C8190">ככה זה נראה בפועל</span></h2>
+      <h2 style="font-size:clamp(34px,4.6vw,62px);font-weight:800;line-height:1.08;color:#FFFFFF">עבודות שיצרתי<br><span style="color:var(--muted)">ככה זה נראה בפועל</span></h2>
     </div>
 
     <div class="wk-hint" aria-hidden="true">החליקו לעוד עבודות ←</div>
@@ -467,7 +467,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="trust" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px 0;display:flex;flex-direction:column;gap:36px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מה אומרים</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">הלקוחות הראשונים שלי<br><span style="color:#7C8190">מספרים בעצמם</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">הלקוחות הראשונים שלי<br><span style="color:var(--muted)">מספרים בעצמם</span></h2>
   </div>
   <div class="tm-grid">
     <figure class="card tm">
@@ -490,7 +490,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="services" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:36px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">במה אני עוזר</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">כלים שנכנסים לשגרה<br><span style="color:#7C8190">לא נשארים על המדף</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">כלים שנכנסים לשגרה<br><span style="color:var(--muted)">לא נשארים על המדף</span></h2>
   </div>
   <div class="sv-grid">
     <div class="card sv-tile" style="border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge)">
@@ -520,7 +520,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="stories" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:30px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:780px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מה זה יכול לעשות בשבילכם?</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">בחרו מה מוכר לכם<br><span style="color:#7C8190">או בדקו כמה זה חוסך</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">בחרו מה מוכר לכם<br><span style="color:var(--muted)">או בדקו כמה זה חוסך</span></h2>
   </div>
   <div class="seg" role="tablist" aria-label="בחירת תצוגה">
     <button type="button" role="tab" class="seg-b press" aria-selected="{{modeStories}}" onClick="{{pickStories}}" style="background:{{segA.bg}};color:{{segA.fg}}">מה גוזל לכם זמן?</button>
@@ -759,7 +759,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="about" class="sec" style="max-width:1080px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:32px">
   <div style="display:flex;flex-direction:column;gap:14px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">איך עובדים איתי</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מדברים ישירות<br><span style="color:#7C8190">עם מי שעושה את העבודה</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מדברים ישירות<br><span style="color:var(--muted)">עם מי שעושה את העבודה</span></h2>
   </div>
   <div class="me-row">
     <div class="me-pic"><img src="media/rubi.webp" alt="רובי יניר פרקש" width="360" height="360" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></div>
@@ -778,7 +778,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="pricing" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:32px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:780px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מחירים</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מחירי השקה<br><span style="color:#7C8190">סופיים, אין מע״מ</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מחירי השקה<br><span style="color:var(--muted)">סופיים, אין מע״מ</span></h2>
     <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">אלה מחירים ללקוחות הראשונים. אני עוסק פטור, ולכן לא גובה מע״מ בכלל. המחיר שמופיע כאן הוא המחיר הסופי שתשלמו, בלי שום תוספת. המחיר המדויק נקבע מראש בשיחת ההיכרות.</p>
   </div>
   <div class="pr-grid">
@@ -932,7 +932,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <footer style="border-top:1px solid rgba(255,255,255,0.08)">
   <div style="max-width:1280px;margin:0 auto;padding:36px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
     <span style="display:flex;align-items:center;gap:10px"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink:0"><rect x="0" y="0" width="40" height="40" rx="11" style="fill:var(--accent)"></rect><g fill="none" style="stroke:var(--bg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 30V10h8a6 6 0 010 12h-8"></path><path d="M20 22l7 8"></path></g><g style="fill:var(--bg)"><circle cx="13" cy="30" r="3.2"></circle><circle cx="27" cy="30" r="3.2"></circle><circle cx="13" cy="10" r="3.2"></circle></g><circle cx="13" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="27" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="13" cy="10" r="1.3" style="fill:var(--accent)"></circle></svg><span dir="ltr" style="font-family:'Heebo',sans-serif;font-size:19px;line-height:1;white-space:nowrap;color:#FFFFFF"><span style="font-weight:800;letter-spacing:-0.01em">Rubix</span> <span style="font-weight:500;color:#C4C8D2">Solutions</span></span></span>
-    <span style="font-size:16px;color:#7C8190">© 2026 Rubix Solutions · דשבורדים · אתרים · אוטומציות · סוכני AI</span>
+    <span style="font-size:16px;color:var(--muted)">© 2026 Rubix Solutions · דשבורדים · אתרים · אוטומציות · סוכני AI</span>
     <a href="negishut.html" style="font-size:15px;font-weight:700;color:#C4C8D2;text-decoration:underline;text-underline-offset:3px">הצהרת נגישות</a>
     <span style="font-size:13px;color:#8E93A1;width:100%">המוזיקה בסרטונים: הלחנה מקורית עם דגימות FluidR3 GM של Frank Wen (CC BY 3.0)</span>
   </div>
@@ -940,7 +940,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"לילה","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"כחול עמוק","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -954,6 +954,7 @@ class Component extends DCLogic {
       const n = Math.min(r.children.length, Math.max(1, Math.round(Math.abs(r.scrollLeft) / step) + 1));
       if (n !== this.state.wk) this.setState({ wk: n });
     }, true);
+    try { const bg = getComputedStyle(document.querySelector('[style*="--bg"]')).getPropertyValue('--bg').trim(); if (bg) { document.body.style.background = bg; const m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', bg); } } catch (e) {}
     this.tw = { wi: 0, n: 0, del: false };
     const tick = this.tick = () => {
       const words = this.getWords();
@@ -1237,9 +1238,9 @@ class Component extends DCLogic {
     const words = String(p.heroWords ?? 'מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות').split(',').map((w) => w.trim()).filter((w) => w.length > 0);
     const word = this.state.typed ?? '';
     const themes = {
-      'לילה': { bg: '#07080C', bg2: '#0A0B10', card: '#0E1017', card2: '#12141C', inset: '#0C0E14' },
-      'כחול עמוק': { bg: '#050A18', bg2: '#081028', card: '#0C1632', card2: '#111D3E', inset: '#0A1329' },
-      'גרפיט חם': { bg: '#0D0B09', bg2: '#12100D', card: '#191613', card2: '#201C18', inset: '#15120F' }
+      'לילה': { bg: '#07080C', bg2: '#0A0B10', card: '#0E1017', card2: '#12141C', inset: '#0C0E14', muted: '#7C8190' },
+      'כחול עמוק': { bg: '#0B1733', bg2: '#0E1D40', card: '#14264F', card2: '#1A2F5E', inset: '#102047', muted: '#8E98B3' },
+      'גרפיט חם': { bg: '#0D0B09', bg2: '#12100D', card: '#191613', card2: '#201C18', inset: '#15120F', muted: '#8A8378' }
     };
     const th = themes[p.theme ?? 'לילה'] || themes['לילה'];
     const fonts = {
