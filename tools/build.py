@@ -95,29 +95,53 @@ class DCLogic { constructor(p) { this.props = p; this.state = {}; } setState(u) 
 '''.replace('__PROPS__', json.dumps(props, ensure_ascii=False))
 
 contact_fix = r'''
-// contact form: the "שליחה" button opens WhatsApp with the details filled in
+// contact form: "שליחה" sends the details to Rubi's email.
+// Path: Make webhook -> Gmail (scenario "Rubix – פניות מהאתר למייל", team 2109855).
+// Sent as a simple form POST in no-cors mode: no preflight, so the browser
+// never blocks it; the reply can't be read, so a network error is the only
+// failure we see, and then WhatsApp opens with the details as a fallback.
+const LEAD_HOOK = 'https://hook.eu1.make.com/tv1vcdizrzi9hng3xu05hfoivaluh36r';
+function formToast(msg, ms) {
+  let t = document.getElementById('form-toast');
+  if (!t) { t = document.createElement('div'); t.id = 'form-toast'; t.setAttribute('role', 'status'); t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:300;background:#111319;color:#fff;font:700 16px Heebo,sans-serif;padding:14px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.16);box-shadow:0 20px 50px -14px rgba(0,0,0,0.85);max-width:calc(100vw - 32px);text-align:center'; document.body.appendChild(t); }
+  t.textContent = msg; t.hidden = false;
+  clearTimeout(t._h); t._h = setTimeout(() => { t.hidden = true; }, ms || 2800);
+}
 document.addEventListener('click', (e) => {
   const b = e.target && e.target.closest ? e.target.closest('button.send') : null;
-  if (!b) return;
+  if (!b || b.disabled) return;
   const v = (id) => ((document.getElementById(id) || {}).value || '').trim();
-  const name = v('f-name'), mail = v('f-email'), need = v('f-need');
+  const name = v('f-name'), mail = v('f-email'), need = v('f-need'), phone = v('f-phone');
   const hasMail = !!document.getElementById('f-email');
   const needPhone = !hasMail && !!document.getElementById('f-phone');
-  if (!name || (hasMail && !mail) || (needPhone && !v('f-phone')) || !need) {
-    let t = document.getElementById('form-toast');
-    if (!t) { t = document.createElement('div'); t.id = 'form-toast'; t.setAttribute('role', 'status'); t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:300;background:#111319;color:#fff;font:700 16px Heebo,sans-serif;padding:14px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.16);box-shadow:0 20px 50px -14px rgba(0,0,0,0.85)'; document.body.appendChild(t); }
-    t.textContent = hasMail ? 'נא למלא שם, מייל ומה הייתם רוצים לבנות' : 'נא למלא שם, טלפון ומה הייתם רוצים לבנות'; t.hidden = false;
-    clearTimeout(t._h); t._h = setTimeout(() => { t.hidden = true; }, 2800);
+  if (!name || (hasMail && !mail) || (needPhone && !phone) || !need) {
+    formToast(hasMail ? 'נא למלא שם, מייל ומה הייתם רוצים לבנות' : 'נא למלא שם, טלפון ומה הייתם רוצים לבנות');
     return;
   }
-  const lines = ['היי רובי, אשמח לשמוע עוד.', 'שם: ' + name];
-  if (mail) lines.push('מייל: ' + mail);
-  if (v('f-phone')) lines.push('טלפון: ' + v('f-phone'));
-  if (v('f-biz')) lines.push('עסק: ' + v('f-biz'));
-  lines.push('מה אני רוצה לבנות: ' + need);
-  const wa = document.querySelector('a.fab');
-  const base = wa ? wa.href.split('?')[0] : 'https://wa.me/972547714300';
-  window.open(base + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  const data = new URLSearchParams({ name, need, page: location.href });
+  if (phone) data.set('phone', phone);
+  if (mail) data.set('email', mail);
+  if (v('f-biz')) data.set('biz', v('f-biz'));
+  if (v('f-website')) data.set('website', v('f-website'));
+  const label = b.textContent;
+  b.disabled = true; b.textContent = 'שולח...';
+  fetch(LEAD_HOOK, { method: 'POST', mode: 'no-cors', body: data })
+    .then(() => {
+      ['f-name', 'f-email', 'f-phone', 'f-biz', 'f-need'].forEach((id) => { const el = document.getElementById(id); if (el) el.value = ''; });
+      formToast('תודה! הפרטים הגיעו אליי, ואחזור אליכם בהקדם.', 5000);
+    })
+    .catch(() => {
+      formToast('השליחה לא הצליחה, אז פתחתי וואטסאפ עם הפרטים.', 5000);
+      const lines = ['היי רובי, אשמח לשמוע עוד.', 'שם: ' + name];
+      if (mail) lines.push('מייל: ' + mail);
+      if (phone) lines.push('טלפון: ' + phone);
+      if (v('f-biz')) lines.push('עסק: ' + v('f-biz'));
+      lines.push('מה אני רוצה לבנות: ' + need);
+      const wa = document.querySelector('a.fab');
+      const base = wa ? wa.href.split('?')[0] : 'https://wa.me/972547714300';
+      window.open(base + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+    })
+    .finally(() => { b.disabled = false; b.textContent = label; });
 });
 '''
 
