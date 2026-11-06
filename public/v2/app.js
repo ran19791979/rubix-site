@@ -5,7 +5,7 @@ class DCLogic { constructor(p) { this.props = p; this.state = {}; } setState(u) 
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
+    this.state = { prAll: false, mode: 'stories', wk: 1, v: -1, i: 0, open: 0, story: 0, menu: false, prog: 0, hours: 10, team: 3, wage: 100, eff: 30, desc: '', recording: false, micMsg: '', phase: 'empty', res: null };
   }
   componentDidMount() {
     document.addEventListener('scroll', (e) => {
@@ -66,7 +66,7 @@ class Component extends DCLogic {
     document.addEventListener('click', this.onVidTap, true);
   }
   vidsData() {
-    return [{"src": "../media/desk.mp4?v=545a95c9", "poster": "../media/desk-poster.jpg?v=88cffc39", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "../media/agent.mp4?v=688ddf9c", "poster": "../media/agent-poster.jpg?v=80cf3a64", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "../media/automation.mp4?v=1a67bd5e", "poster": "../media/automation-poster.jpg?v=aaa957b1", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "../media/website.mp4?v=5c1b9535", "poster": "../media/website-poster.jpg?v=cb2a12df", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
+    return [{"src": "../media/desk.mp4?v=545a95c9#t=0.5", "poster": "../media/desk-start.jpg?v=3af9e69a", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "../media/agent.mp4?v=688ddf9c#t=0.5", "poster": "../media/agent-start.jpg?v=5b3927f8", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "../media/automation.mp4?v=1a67bd5e#t=0.5", "poster": "../media/automation-start.jpg?v=d308e178", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "../media/website.mp4?v=5c1b9535#t=0.5", "poster": "../media/website-start.jpg?v=babd1c47", "title": "אתר תדמית ומידע, עם פאנל ניהול"}];
   }
   buildViewer() {
     if (this.vv) return this.vv;
@@ -86,6 +86,7 @@ class Component extends DCLogic {
     const fab = document.querySelector('a.fab'); const waA = vv.querySelector('.vv-wa');
     if (fab && fab.href) waA.href = fab.href; else waA.href = '#contact';
     waA.addEventListener('click', () => this.closeVideo());
+    v.addEventListener('loadedmetadata', () => { if (v.currentTime < 0.5) { try { v.currentTime = 0.5; } catch (e) {} } });
     v.addEventListener('playing', () => { spin.hidden = true; });
     v.addEventListener('waiting', () => { spin.hidden = false; });
     v.addEventListener('pause', () => { spin.hidden = true; });
@@ -343,6 +344,10 @@ class Component extends DCLogic {
     const saved = Math.round(hours * team * 4.33 * (eff / 100));
     const money = saved * wage;
     return {
+      prAll: this.state.prAll,
+      prAllStr: this.state.prAll ? 'true' : 'false',
+      prBtn: this.state.prAll ? 'פחות מחירים' : 'כל המחירים (עוד 6 שירותים)',
+      togglePr: () => this.setState({ prAll: !this.state.prAll }),
       modeStories: this.state.mode === 'stories',
       modeRoi: this.state.mode === 'roi',
       segA: { bg: this.state.mode === 'stories' ? 'var(--accent)' : 'transparent', fg: this.state.mode === 'stories' ? 'var(--bg)' : '#D2D5DE' },
@@ -399,7 +404,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": true, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');
