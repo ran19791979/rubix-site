@@ -354,7 +354,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <a class="nav" href="#work">עבודות</a>
       <a class="nav" href="#stories">מה זה חוסך</a>
       <a class="nav" href="#process">איך עובדים</a>
-      <a class="nav" href="#pricing">מחירים</a>
+      <sc-if value="{{showPricing}}" hint-placeholder-val="{{false}}"><a class="nav" href="#pricing">מחירים</a></sc-if>
       <a class="nav" href="#faq">שאלות</a>
     </nav>
     <div style="display:flex;align-items:center;gap:10px">
@@ -370,7 +370,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <a class="m-link" href="#work" onClick="{{closeMenu}}">עבודות</a>
       <a class="m-link" href="#stories" onClick="{{closeMenu}}">מה זה חוסך</a>
       <a class="m-link" href="#process" onClick="{{closeMenu}}">איך עובדים</a>
-      <a class="m-link" href="#pricing" onClick="{{closeMenu}}">מחירים</a>
+      <sc-if value="{{showPricing}}" hint-placeholder-val="{{false}}"><a class="m-link" href="#pricing" onClick="{{closeMenu}}">מחירים</a></sc-if>
       <a class="m-link" href="#faq" onClick="{{closeMenu}}">שאלות</a>
       <a class="cta" href="#contact" onClick="{{closeMenu}}" style="margin-top:18px;padding:16px 24px;border-radius:999px;font-weight:800;font-size:18px;text-align:center">בואו נדבר</a>
     </div>
@@ -795,7 +795,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 </div>
 </div>
 
-<!-- PRICING -->
+<!-- PRICING: hidden by default (prop showPricing) -->
+<sc-if value="{{showPricing}}" hint-placeholder-val="{{false}}">
 <div id="pricing" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:32px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:780px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מחירים</span>
@@ -841,6 +842,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <a class="cta" href="#contact" style="align-self:flex-start;padding:16px 30px;border-radius:999px;font-weight:800;font-size:18px">לשיחת היכרות חינם</a>
 </div>
 
+</sc-if>
+
 <!-- FAQ -->
 <sc-if value="{{showFaq}}" hint-placeholder-val="{{true}}">
 <div id="faq" style="background:var(--bg2);border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)">
@@ -883,7 +886,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
           <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq3.sign}}</span>
         </button>
         <sc-if value="{{faq3.open}}" hint-placeholder-val="{{false}}">
-          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה אחת מתחילה ב-700 ₪ ואתר תדמית ב-2,900 ₪. כל המחירים מופיעים <a href="#pricing">במחירון</a>, והם סופיים. אין עליהם מע״מ. אחרי שיחת ההיכרות תקבלו הצעה עם מחיר קבוע מראש ולוח זמנים, בלי הפתעות.</p>
+          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">זה תלוי בגודל הפרויקט. אחרי שיחת ההיכרות תקבלו הצעה מסודרת עם מחיר קבוע מראש ולוח זמנים. אני עוסק פטור, כך שלא מתווסף מע״מ.</p>
         </sc-if>
       </div>
       <div style="border-bottom:1px solid rgba(255,255,255,0.1)">
@@ -923,7 +926,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <a class="contact-line" href="{{telHref}}"><span>טלפון</span><b dir="ltr">{{phoneDisplay}}</b></a>
       <a class="contact-line" href="{{mailHref}}"><span>מייל</span><b dir="ltr">{{email}}</b></a>
     </div>
-    <p style="font-size:16px;line-height:1.6;color:#A9ADBA">רוצים קודם לעבוד יחד על משהו ממוקד, כמו לסדר תהליך בעסק או ללמוד כלי AI? יש גם פגישת עבודה אישית של שעה ב-250 ₪.</p>
+    <p style="font-size:16px;line-height:1.6;color:#A9ADBA">רוצים קודם לעבוד יחד על משהו ממוקד, כמו לסדר תהליך בעסק או ללמוד כלי AI? יש גם פגישת עבודה אישית של שעה.</p>
     <div class="panel" style="padding:30px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:24px">
       <h3 style="font-size:28px;font-weight:800;color:#FFFFFF">או השאירו פרטים</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px">

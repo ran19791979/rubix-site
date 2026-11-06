@@ -338,7 +338,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <a class="nav" href="#work">עבודות</a>
       <a class="nav" href="#stories">מה זה חוסך</a>
       <a class="nav" href="#process">איך עובדים</a>
-      <a class="nav" href="#pricing">מחירים</a>
+      <sc-if value="{{showPricing}}" hint-placeholder-val="{{false}}"><a class="nav" href="#pricing">מחירים</a></sc-if>
       <a class="nav" href="#faq">שאלות</a>
     </nav>
     <div style="display:flex;align-items:center;gap:10px">
@@ -354,7 +354,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <a class="m-link" href="#work" onClick="{{closeMenu}}">עבודות</a>
       <a class="m-link" href="#stories" onClick="{{closeMenu}}">מה זה חוסך</a>
       <a class="m-link" href="#process" onClick="{{closeMenu}}">איך עובדים</a>
-      <a class="m-link" href="#pricing" onClick="{{closeMenu}}">מחירים</a>
+      <sc-if value="{{showPricing}}" hint-placeholder-val="{{false}}"><a class="m-link" href="#pricing" onClick="{{closeMenu}}">מחירים</a></sc-if>
       <a class="m-link" href="#faq" onClick="{{closeMenu}}">שאלות</a>
       <a class="cta" href="#contact" onClick="{{closeMenu}}" style="margin-top:18px;padding:16px 24px;border-radius:999px;font-weight:800;font-size:18px;text-align:center">בואו נדבר</a>
     </div>
@@ -779,7 +779,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 </div>
 </div>
 
-<!-- PRICING -->
+<!-- PRICING: hidden by default (prop showPricing) -->
+<sc-if value="{{showPricing}}" hint-placeholder-val="{{false}}">
 <div id="pricing" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:32px">
   <div style="display:flex;flex-direction:column;gap:14px;max-width:780px">
     <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מחירים</span>
@@ -825,6 +826,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <a class="cta" href="#contact" style="align-self:flex-start;padding:16px 30px;border-radius:999px;font-weight:800;font-size:18px">לשיחת היכרות חינם</a>
 </div>
 
+</sc-if>
+
 <!-- FAQ -->
 <sc-if value="{{showFaq}}" hint-placeholder-val="{{true}}">
 <div id="faq" style="background:var(--bg2);border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)">
@@ -867,7 +870,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
           <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq3.sign}}</span>
         </button>
         <sc-if value="{{faq3.open}}" hint-placeholder-val="{{false}}">
-          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה אחת מתחילה ב-700 ₪ ואתר תדמית ב-2,900 ₪. כל המחירים מופיעים <a href="#pricing">במחירון</a>, והם סופיים. אין עליהם מע״מ. אחרי שיחת ההיכרות תקבלו הצעה עם מחיר קבוע מראש ולוח זמנים, בלי הפתעות.</p>
+          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">זה תלוי בגודל הפרויקט. אחרי שיחת ההיכרות תקבלו הצעה מסודרת עם מחיר קבוע מראש ולוח זמנים. אני עוסק פטור, כך שלא מתווסף מע״מ.</p>
         </sc-if>
       </div>
       <div style="border-bottom:1px solid rgba(255,255,255,0.1)">
@@ -907,7 +910,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <a class="contact-line" href="{{telHref}}"><span>טלפון</span><b dir="ltr">{{phoneDisplay}}</b></a>
       <a class="contact-line" href="{{mailHref}}"><span>מייל</span><b dir="ltr">{{email}}</b></a>
     </div>
-    <p style="font-size:16px;line-height:1.6;color:#A9ADBA">רוצים קודם לעבוד יחד על משהו ממוקד, כמו לסדר תהליך בעסק או ללמוד כלי AI? יש גם פגישת עבודה אישית של שעה ב-250 ₪.</p>
+    <p style="font-size:16px;line-height:1.6;color:#A9ADBA">רוצים קודם לעבוד יחד על משהו ממוקד, כמו לסדר תהליך בעסק או ללמוד כלי AI? יש גם פגישת עבודה אישית של שעה.</p>
     <div class="panel" style="padding:30px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:24px">
       <h3 style="font-size:28px;font-weight:800;color:#FFFFFF">או השאירו פרטים</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px">
@@ -946,7 +949,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"כחול עמוק","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"כחול עמוק","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showPricing":{"editor":"boolean","default":false,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -1319,7 +1322,7 @@ class Component extends DCLogic {
       mailHref: 'mailto:' + email,
       showTools: on(p.showTools), showWork: on(p.showWork), showStories: on(p.showStories),
       showAnalyzer: on(p.showAnalyzer), showRoi: on(p.showRoi), showAbout: on(p.showAbout),
-      showFaq: on(p.showFaq), showWhatsapp: on(p.showWhatsapp), showTestimonials: on(p.showTestimonials),
+      showFaq: on(p.showFaq), showWhatsapp: on(p.showWhatsapp), showTestimonials: on(p.showTestimonials), showPricing: on(p.showPricing),
       tab0: tabFor(0), tab1: tabFor(1), tab2: tabFor(2), tab3: tabFor(3), tab4: tabFor(4), tab5: tabFor(5), tab6: tabFor(6), tab7: tabFor(7),
       story0: this.state.story === 0, story1: this.state.story === 1, story2: this.state.story === 2, story3: this.state.story === 3, story4: this.state.story === 4, story5: this.state.story === 5, story6: this.state.story === 6, story7: this.state.story === 7,
       faq0: faqFor(0), faq1: faqFor(1), faq2: faqFor(2), faq3: faqFor(3), faq4: faqFor(4), faq5: faqFor(5),
