@@ -10,7 +10,7 @@
 <helmet>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&amp;family=Assistant:wght@400;600;700;800&amp;family=Rubik:wght@500;700;800;900&amp;family=Secular+One&amp;family=Varela+Round&amp;family=Frank+Ruhl+Libre:wght@500;700;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
 <style>
-body{margin:0;background:#07080C;-webkit-text-size-adjust:100%;text-size-adjust:100%;color:#EDEEF2;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Heebo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-feature-settings:'kern' 1}
+body{margin:0;background:#050A18;-webkit-text-size-adjust:100%;text-size-adjust:100%;color:#EDEEF2;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Heebo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-feature-settings:'kern' 1}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
@@ -213,6 +213,11 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   [style*="font-size:21px"],[style*="font-size: 21px"]{font-size:17.5px !important}
   [style*="font-size:20px"],[style*="font-size: 20px"]{font-size:17px !important}
   [style*="font-size:19px"],[style*="font-size: 19px"]{font-size:16.5px !important}
+  .hero-h1{font-size:clamp(38px,11vw,46px) !important;line-height:1.08 !important}
+  .hero-cta{align-self:stretch;justify-content:center;width:100%;min-height:56px}
+  .hero-glow{display:none}
+  .brand-name{font-size:20px !important}
+  .pr-line{flex-direction:column;align-items:flex-start;gap:2px}
   [style*="font-size:18px"],[style*="font-size: 18px"]{font-size:16px !important}
   [style*="font-size:17px"],[style*="font-size: 17px"]{font-size:15.5px !important}
   [style*="font-size:16px"],[style*="font-size: 16px"]{font-size:15px !important}
@@ -239,6 +244,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 .seg{display:inline-flex;align-self:flex-start;gap:6px;padding:6px;border-radius:999px;background:var(--card);border:1px solid rgba(255,255,255,0.12)}
 .seg-b{border:0;cursor:pointer;font-family:var(--display);font-weight:800;font-size:17px;padding:12px 20px;border-radius:999px;min-height:46px}
 .me-row{display:flex;align-items:center;gap:22px}
+a.fab.fab-off{opacity:0;visibility:hidden;pointer-events:none}
 .me-pic{width:120px;height:120px;flex:none;border-radius:50%;padding:3px;background:var(--accent)}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .step{display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:22px;background:var(--glass);border:1px solid var(--glass-edge)}
@@ -316,7 +322,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div class="ambient" aria-hidden="true"></div>
 
 <sc-if value="{{showWhatsapp}}" hint-placeholder-val="{{true}}">
-<a class="fab" href="{{waHref}}" aria-label="שלחו הודעת וואטסאפ" style="position:fixed;left:22px;bottom:22px;z-index:80;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(0,0,0,0.6)">
+<a class="fab {{fabCls}}" href="{{waHref}}" aria-label="שלחו הודעת וואטסאפ" style="position:fixed;left:22px;bottom:22px;z-index:80;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(0,0,0,0.6)">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1121 11.5z"></path><path d="M9 9.5c.3 1.6 1.9 3.6 4 4.3l1.2-1.2 1.8.9"></path></svg>
 </a>
 </sc-if>
@@ -327,7 +333,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <!-- NAV -->
 <header style="position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 58%,transparent);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(255,255,255,0.07)">
   <div class="navbar" style="max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px">
-    <a href="#top" aria-label="Rubix Solutions" style="display:flex;align-items:center;gap:10px;color:#FFFFFF"><svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink:0"><rect x="0" y="0" width="40" height="40" rx="11" style="fill:var(--accent)"></rect><g fill="none" style="stroke:var(--bg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 30V10h8a6 6 0 010 12h-8"></path><path d="M20 22l7 8"></path></g><g style="fill:var(--bg)"><circle cx="13" cy="30" r="3.2"></circle><circle cx="27" cy="30" r="3.2"></circle><circle cx="13" cy="10" r="3.2"></circle></g><circle cx="13" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="27" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="13" cy="10" r="1.3" style="fill:var(--accent)"></circle></svg><span dir="ltr" style="font-family:'Heebo',sans-serif;font-size:21px;line-height:1;white-space:nowrap;color:#FFFFFF"><span style="font-weight:800;letter-spacing:-0.01em">Rubix</span> <span style="font-weight:500;color:#C4C8D2">Solutions</span></span></a>
+    <a href="#top" aria-label="Rubix Solutions" style="display:flex;align-items:center;gap:10px;color:#FFFFFF"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink:0"><rect x="0" y="0" width="40" height="40" rx="11" style="fill:var(--accent)"></rect><g fill="none" style="stroke:var(--bg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 30V10h8a6 6 0 010 12h-8"></path><path d="M20 22l7 8"></path></g><g style="fill:var(--bg)"><circle cx="13" cy="30" r="3.2"></circle><circle cx="27" cy="30" r="3.2"></circle><circle cx="13" cy="10" r="3.2"></circle></g><circle cx="13" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="27" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="13" cy="10" r="1.3" style="fill:var(--accent)"></circle></svg><span class="brand-name" dir="ltr" style="font-family:'Heebo',sans-serif;font-size:21px;line-height:1;white-space:nowrap;color:#FFFFFF"><span style="font-weight:800;letter-spacing:-0.01em">Rubix</span> <span style="font-weight:500;color:#C4C8D2">Solutions</span></span></a>
     <nav class="navlinks" aria-label="ראשי" style="display:flex;gap:30px">
       <a class="nav" href="#work">עבודות</a>
       <a class="nav" href="#stories">מה זה חוסך</a>
@@ -358,22 +364,21 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <main id="main">
 <!-- HERO -->
 <div id="top" class="grid-bg" style="position:relative;border-bottom:1px solid rgba(255,255,255,0.08)">
-  <div class="glow-a" style="top:-220px;right:-160px"></div>
+  <div class="glow-a hero-glow" style="top:-220px;right:-160px"></div>
   <div class="glow-b" style="bottom:-260px;left:-200px"></div>
   <div class="hero stack" style="position:relative;max-width:1280px;margin:0 auto;padding:120px 32px 110px;display:flex;gap:64px;align-items:center;flex-wrap:wrap">
 
     <div style="flex:1 1 540px;min-width:0;max-width:900px;display:flex;flex-direction:column;gap:28px">
-      <div class="rise" style="--d:0ms;display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);background:color-mix(in srgb,var(--accent) 8%,transparent);color:color-mix(in srgb,var(--accent) 65%,white);font-weight:700;font-size:16px">
-        <span class="live" style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></span>
-        פתוח לפרויקטים חדשים
+      <h1 class="rise hero-h1" style="--d:70ms;font-size:clamp(44px,6.6vw,92px);font-weight:800;line-height:1.04;letter-spacing:-0.025em;color:#FFFFFF">פחות עבודה ידנית.<br><span style="color:var(--accent)">יותר זמן לעסק.</span></h1>
+      <div class="rise hero-me" style="--d:140ms;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <img class="hero-pic" src="media/rubi.webp" alt="רובי יניר פרקש" width="360" height="360" decoding="async" fetchpriority="high" style="width:clamp(56px,6vw,88px);height:clamp(56px,6vw,88px);flex:none;border-radius:50%;object-fit:cover;padding:3px;background:var(--accent)">
+          <span style="font-family:var(--display);font-size:clamp(23px,2.8vw,36px);font-weight:700;line-height:1.3;color:#D2D5DD">נעים מאוד, אני רובי.</span>
+        </div>
+        <p style="font-family:var(--display);font-size:clamp(23px,2.8vw,36px);font-weight:700;line-height:1.35;color:#FFFFFF;max-width:820px">בונה לעסקים קטנים אתרים, אוטומציות, דשבורדים וסוכני AI.</p>
       </div>
-      <h1 class="rise" style="--d:70ms;font-size:clamp(44px,6.6vw,92px);font-weight:800;line-height:1.04;letter-spacing:-0.025em;color:#FFFFFF">פחות עבודה ידנית.<br><span style="color:var(--accent)">יותר זמן לעסק.</span></h1>
-      <div class="rise" style="--d:140ms;font-family:var(--display);font-size:clamp(23px,2.8vw,36px);font-weight:700;line-height:1.35;color:#D2D5DD;min-height:2.7em">
-        נעים מאוד, אני רובי. אני בונה לעסקים <span style="color:#FFFFFF;border-bottom:3px solid var(--accent)">{{word}}</span><span class="caret" style="color:var(--accent)">|</span>
-      </div>
-      <p class="rise" style="--d:210ms;font-size:clamp(19px,1.6vw,22px);line-height:1.7;color:#C4C8D2;max-width:600px">העבודה שחוזרת על עצמה כל יום יכולה לרוץ לבד. אני מתאים לכם את הכלים שעושים אותה ומלווה אתכם עד שהם נכנסים לשגרה.</p>
       <div class="rise" style="--d:280ms;display:flex;gap:14px;flex-wrap:wrap;padding-top:4px">
-        <a class="cta" href="#contact" style="padding:18px 34px;border-radius:999px;font-weight:800;font-size:19px">לשיחת היכרות חינם</a>
+        <a class="cta hero-cta" href="{{waHi}}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;padding:18px 34px;border-radius:999px;font-weight:800;font-size:19px"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.8-4.5-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"></path></svg>לשיחת היכרות חינם בוואטסאפ</a>
       </div>
       <button type="button" class="motion-btn" onClick="{{toggleMotion}}" aria-pressed="{{paused}}">{{motionLabel}}</button>
     </div>
@@ -940,7 +945,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"לילה","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"כחול עמוק","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -956,6 +961,7 @@ class Component extends DCLogic {
     }, true);
     this.tw = { wi: 0, n: 0, del: false };
     const tick = this.tick = () => {
+      if (!document.querySelector('.caret')) return; // the hero line is static now (no typewriter on the page)
       const words = this.getWords();
       if (!words.length) { this.twTimer = setTimeout(tick, 500); return; }
       if (this.state.paused) { this.setState({ typed: words[this.tw.wi % words.length] }); return; }
@@ -989,7 +995,9 @@ class Component extends DCLogic {
         this.raf = null;
         const doc = document.documentElement;
         const max = Math.max(1, doc.scrollHeight - window.innerHeight);
-        this.setState({ prog: Math.min(100, Math.max(0, (window.scrollY / max) * 100)) });
+        const heroEl = document.getElementById('top');
+        const pastHero = heroEl ? heroEl.getBoundingClientRect().bottom < window.innerHeight * 0.45 : true;
+        this.setState({ prog: Math.min(100, Math.max(0, (window.scrollY / max) * 100)), pastHero });
       });
     };
     window.addEventListener('scroll', this.onScroll, { passive: true });
@@ -1310,6 +1318,8 @@ class Component extends DCLogic {
       phoneDisplay, email,
       telHref: 'tel:+' + intl,
       waHref: 'https://wa.me/' + intl,
+      fabCls: this.state.pastHero ? '' : 'fab-off',
+      waHi: 'https://wa.me/' + intl + '?text=' + encodeURIComponent('היי רובי, הגעתי מהאתר ואשמח לשיחת היכרות'),
       mailHref: 'mailto:' + email,
       showTools: on(p.showTools), showWork: on(p.showWork), showStories: on(p.showStories),
       showAnalyzer: on(p.showAnalyzer), showRoi: on(p.showRoi), showAbout: on(p.showAbout),

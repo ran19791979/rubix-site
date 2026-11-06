@@ -165,7 +165,7 @@ html = f'''<!doctype html>
 <meta name="description" content="רובי בונה לעסקים דשבורדים לניהול, אתרי תדמית ומידע, אוטומציות ב-Make וסוכני AI שחוסכים שעות עבודה כל שבוע.">
 <meta name="robots" content="noindex, nofollow">
 {og_tags}
-<meta name="theme-color" content="#07080C">
+<meta name="theme-color" content="#050A18">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 {helmet}
 </head>

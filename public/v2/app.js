@@ -17,6 +17,7 @@ class Component extends DCLogic {
     }, true);
     this.tw = { wi: 0, n: 0, del: false };
     const tick = this.tick = () => {
+      if (!document.querySelector('.caret')) return; // the hero line is static now (no typewriter on the page)
       const words = this.getWords();
       if (!words.length) { this.twTimer = setTimeout(tick, 500); return; }
       if (this.state.paused) { this.setState({ typed: words[this.tw.wi % words.length] }); return; }
@@ -50,7 +51,9 @@ class Component extends DCLogic {
         this.raf = null;
         const doc = document.documentElement;
         const max = Math.max(1, doc.scrollHeight - window.innerHeight);
-        this.setState({ prog: Math.min(100, Math.max(0, (window.scrollY / max) * 100)) });
+        const heroEl = document.getElementById('top');
+        const pastHero = heroEl ? heroEl.getBoundingClientRect().bottom < window.innerHeight * 0.45 : true;
+        this.setState({ prog: Math.min(100, Math.max(0, (window.scrollY / max) * 100)), pastHero });
       });
     };
     window.addEventListener('scroll', this.onScroll, { passive: true });
@@ -371,6 +374,8 @@ class Component extends DCLogic {
       phoneDisplay, email,
       telHref: 'tel:+' + intl,
       waHref: 'https://wa.me/' + intl,
+      fabCls: this.state.pastHero ? '' : 'fab-off',
+      waHi: 'https://wa.me/' + intl + '?text=' + encodeURIComponent('היי רובי, הגעתי מהאתר ואשמח לשיחת היכרות'),
       mailHref: 'mailto:' + email,
       showTools: on(p.showTools), showWork: on(p.showWork), showStories: on(p.showStories),
       showAnalyzer: on(p.showAnalyzer), showRoi: on(p.showRoi), showAbout: on(p.showAbout),
@@ -404,7 +409,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "לילה", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "כחול עמוק", "headingFont": "SF Pro (מערכת)", "heroWords": "מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showTestimonials": false, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');
