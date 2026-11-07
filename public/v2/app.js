@@ -64,6 +64,15 @@ class Component extends DCLogic {
     document.addEventListener('pointermove', this.onMove, { passive: true });
     this.onVidTap = (e) => { const b = e.target && e.target.closest ? e.target.closest('button.vprev') : null; if (b) this.openVideo(Array.prototype.indexOf.call(document.querySelectorAll('button.vprev'), b), b); };
     document.addEventListener('click', this.onVidTap, true);
+    // scroll reveal: mark blocks as they reach the screen; content stays visible if this never runs
+    try {
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((ents) => { ents.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('rv-in'); io.unobserve(en.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+        const scan = () => { document.querySelectorAll('.rv:not(.rv-in)').forEach((el) => io.observe(el)); };
+        scan(); window.__afterRender = scan;
+        document.documentElement.classList.add('rv-on');
+      }
+    } catch (e) { document.documentElement.classList.remove('rv-on'); }
   }
   vidsData() {
     return [{"src": "../media/desk.mp4?v=545a95c9#t=0.5", "poster": "../media/desk-start.jpg?v=3af9e69a", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "../media/automation.mp4?v=1a67bd5e#t=0.5", "poster": "../media/automation-start.jpg?v=d308e178", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "../media/agent.mp4?v=688ddf9c#t=0.5", "poster": "../media/agent-start.jpg?v=5b3927f8", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "../media/website.mp4?v=651bca8c#t=0.5", "poster": "../media/website-start.jpg?v=76343828", "title": "אתר עם אוטומציה בפנים"}];
@@ -445,12 +454,15 @@ class Component extends DCLogic {
   function render() {
     morphdom(root, build(), {
       onBeforeElUpdated(from, to) {
+        // scroll reveal: an element that already appeared keeps its 'rv-in' class
+        if (from.classList && from.classList.contains('rv-in') && to.classList) to.classList.add('rv-in');
         if (from.isEqualNode(to)) return false;
         // never wipe what a visitor is typing
         if ((from.tagName === 'TEXTAREA' || (from.tagName === 'INPUT' && from.type !== 'range')) && !to.hasAttribute('value')) to.value = from.value;
         return true;
       },
     });
+    if (window.__afterRender) window.__afterRender();
   }
   let pending = false;
   window.__dcRender = () => { if (pending) return; pending = true; requestAnimationFrame(() => { pending = false; render(); }); };

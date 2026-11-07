@@ -72,12 +72,15 @@ class DCLogic { constructor(p) { this.props = p; this.state = {}; } setState(u) 
   function render() {
     morphdom(root, build(), {
       onBeforeElUpdated(from, to) {
+        // scroll reveal: an element that already appeared keeps its 'rv-in' class
+        if (from.classList && from.classList.contains('rv-in') && to.classList) to.classList.add('rv-in');
         if (from.isEqualNode(to)) return false;
         // never wipe what a visitor is typing
         if ((from.tagName === 'TEXTAREA' || (from.tagName === 'INPUT' && from.type !== 'range')) && !to.hasAttribute('value')) to.value = from.value;
         return true;
       },
     });
+    if (window.__afterRender) window.__afterRender();
   }
   let pending = false;
   window.__dcRender = () => { if (pending) return; pending = true; requestAnimationFrame(() => { pending = false; render(); }); };
