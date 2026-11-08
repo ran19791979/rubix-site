@@ -459,10 +459,10 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
       <!-- Work 4: website (video) -->
       <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
-        <button type="button" class="vbtn vprev" onClick="{{openV3}}" aria-label="צפו בסרטון: אתר עם אוטומציה בפנים"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/website-still.jpg"><img src="media/website-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span></button>
+        <button type="button" class="vbtn vprev" onClick="{{openV3}}" aria-label="צפו בסרטון: אתר עם אוטומציה מובנית"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/website-still.jpg"><img src="media/website-preview.webp" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span></button>
         <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
           <span style="font-size:15px;color:var(--accent);font-weight:800">אתר + אוטומציה</span>
-          <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">אתר עם אוטומציה בפנים</h3>
+          <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">אתר עם אוטומציה מובנית</h3>
           <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">אני בונה את האתר ומחבר אליו אוטומציות שעונות ללקוחות, שומרות פניות ומעדכנות אתכם. בסרטון: הדגמה לקליניקה.</p>
         </div>
       </div>
@@ -1028,7 +1028,7 @@ class Component extends DCLogic {
     } catch (e) { document.documentElement.classList.remove('rv-on'); }
   }
   vidsData() {
-    return [{"src": "media/desk.mp4#t=0.5", "poster": "media/desk-start.jpg", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/automation.mp4#t=0.5", "poster": "media/automation-start.jpg", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/agent.mp4#t=0.5", "poster": "media/agent-start.jpg", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/website.mp4#t=0.5", "poster": "media/website-start.jpg", "title": "אתר עם אוטומציה בפנים"}];
+    return [{"src": "media/desk.mp4#t=0.5", "poster": "media/desk-start.jpg", "title": "מערכת לניהול תוכן ולקוחות"}, {"src": "media/automation.mp4#t=0.5", "poster": "media/automation-start.jpg", "title": "אוטומציה שממיינת פניות לפי דחיפות"}, {"src": "media/agent.mp4#t=0.5", "poster": "media/agent-start.jpg", "title": "סוכן AI שבודק ומתקן תוכן"}, {"src": "media/website.mp4#t=0.5", "poster": "media/website-start.jpg", "title": "אתר עם אוטומציה מובנית"}];
   }
   buildViewer() {
     if (this.vv) return this.vv;
