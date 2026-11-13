@@ -152,13 +152,13 @@ title = re.search(r'<title>(.*?)</title>', src).group(1)
 # link previews (WhatsApp, Facebook, LinkedIn). Change SITE when the real domain is connected.
 SITE = 'https://rubix-site-two.vercel.app'
 page_url = SITE + '/' + (os.path.relpath(OUT, ROOT + '/public') + '/' if SUB else '')
-og_title = 'Rubix Solutions | פחות עבודה ידנית, יותר זמן לעסק'
+og_title = 'Rubix Solutions | העסק שלכם עובד גם כשאתם לא'
 og_desc = 'כלים חכמים לעסקים קטנים: דשבורדים, אתרים, אוטומציות וסוכני AI שעושים לבד את העבודה החוזרת. שיחת היכרות חינם.'
 og_tags = (f'<meta property="og:type" content="website">\n<meta property="og:locale" content="he_IL">\n'
            f'<meta property="og:site_name" content="Rubix Solutions">\n<meta property="og:url" content="{page_url}">\n'
            f'<meta property="og:title" content="{og_title}">\n<meta property="og:description" content="{og_desc}">\n'
            f'<meta property="og:image" content="{SITE}/media/og.jpg">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
-           f'<meta property="og:image:alt" content="Rubix Solutions – פחות עבודה ידנית, יותר זמן לעסק">\n<meta name="twitter:card" content="summary_large_image">')
+           f'<meta property="og:image:alt" content="Rubix Solutions – העסק שלכם עובד גם כשאתם לא">\n<meta name="twitter:card" content="summary_large_image">')
 html = f'''<!doctype html>
 <html lang="he" dir="rtl">
 <head>
