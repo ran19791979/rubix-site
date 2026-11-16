@@ -534,17 +534,12 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   </div>
 </div>
 
-<!-- STORIES + CALCULATOR -->
+<!-- STORIES -->
 <div id="stories" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:30px">
   <div class="rv" style="display:flex;flex-direction:column;gap:14px;max-width:780px">
     <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">בחרו מה מוכר לכם</h2>
-    <p class="h-sub">או בדקו כמה זה חוסך</p>
+    <p class="h-sub">מה גוזל לכם זמן?</p>
   </div>
-  <div class="seg rv" role="tablist" aria-label="בחירת תצוגה">
-    <button type="button" role="tab" class="seg-b press" aria-selected="{{modeStories}}" onClick="{{pickStories}}" style="background:{{segA.bg}};color:{{segA.fg}}">מה גוזל לכם זמן?</button>
-    <button type="button" role="tab" class="seg-b press" aria-selected="{{modeRoi}}" onClick="{{pickRoi}}" style="background:{{segB.bg}};color:{{segB.fg}}">מחשבון זמן וכסף</button>
-  </div>
-  <sc-if value="{{modeStories}}" hint-placeholder-val="{{true}}">
   <div class="tabs-row rv" style="--i:1;display:flex;gap:12px;flex-wrap:wrap">
     <button type="button" class="tab press" onClick="{{tab0.pick}}" style="min-height:48px;padding:13px 22px;border-radius:999px;border:1.5px solid {{tab0.border}};background:{{tab0.bg}};color:{{tab0.fg}};font-family:var(--display);font-size:17px;font-weight:800;cursor:pointer">עונה לאותן שאלות שוב ושוב</button>
     <button type="button" class="tab press" onClick="{{tab1.pick}}" style="min-height:48px;padding:13px 22px;border-radius:999px;border:1.5px solid {{tab1.border}};background:{{tab1.bg}};color:{{tab1.fg}};font-family:var(--display);font-size:17px;font-weight:800;cursor:pointer">מעתיק נתונים ממקום למקום</button>
@@ -733,43 +728,6 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   </div>
   </sc-if>
   <p class="rv" style="font-size:15px;color:#8E93A1">הסיפורים הם דוגמאות להמחשה, לא לקוחות אמיתיים.</p>
-  </sc-if>
-  <sc-if value="{{modeRoi}}" hint-placeholder-val="{{false}}">
-  <div id="roi" style="display:flex;flex-direction:column;gap:20px">
-    <p style="font-size:18px;line-height:1.6;color:#C4C8D2">הזיזו את הסמנים וקבלו הערכה מהירה. בשיחת ההיכרות נבדוק יחד את המספרים האמיתיים שלכם.</p>
-  <div class="stack" style="display:flex;gap:24px;flex-wrap:wrap">
-    <div class="panel" style="flex:1.3 1 480px;min-width:0;padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:30px">
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;justify-content:space-between;gap:12px"><label for="r-h" style="font-size:18px;font-weight:700;color:#D2D5DE">שעות עבודה ידנית בשבוע, לכל עובד</label><span style="font-family:var(--display);font-size:20px;font-weight:800;color:#FFFFFF">{{hours}}</span></div>
-        <input id="r-h" type="range" min="1" max="30" step="1" value="{{hours}}" onChange="{{setHours}}">
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;justify-content:space-between;gap:12px"><label for="r-t" style="font-size:18px;font-weight:700;color:#D2D5DE">כמה אנשים בצוות</label><span style="font-family:var(--display);font-size:20px;font-weight:800;color:#FFFFFF">{{team}}</span></div>
-        <input id="r-t" type="range" min="1" max="20" step="1" value="{{team}}" onChange="{{setTeam}}">
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;justify-content:space-between;gap:12px"><label for="r-w" style="font-size:18px;font-weight:700;color:#D2D5DE">עלות שעת עבודה</label><span style="font-family:var(--display);font-size:20px;font-weight:800;color:#FFFFFF">₪{{wage}}</span></div>
-        <input id="r-w" type="range" min="40" max="300" step="10" value="{{wage}}" onChange="{{setWage}}">
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;justify-content:space-between;gap:12px"><label for="r-e" style="font-size:18px;font-weight:700;color:#D2D5DE">כמה מהעבודה אפשר להעביר לאוטומציה</label><span style="font-family:var(--display);font-size:20px;font-weight:800;color:#FFFFFF">{{eff}}%</span></div>
-        <input id="r-e" type="range" min="10" max="70" step="5" value="{{eff}}" onChange="{{setEff}}">
-      </div>
-    </div>
-    <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:20px">
-      <div style="flex:1;padding:36px;border-radius:32px;background:var(--glass);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;justify-content:center;gap:8px">
-        <span style="font-size:18px;font-weight:700;color:#C4C8D2">שעות שחוזרות אליכם בחודש</span>
-        <span style="font-family:var(--display);font-size:clamp(48px,6vw,72px);font-weight:800;color:var(--accent);line-height:1">{{savedHours}}</span>
-      </div>
-      <div style="flex:1;padding:36px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;justify-content:center;gap:8px">
-        <span style="font-size:18px;font-weight:700;color:#C4C8D2">שווי הזמן הזה בחודש</span>
-        <span style="font-family:var(--display);font-size:clamp(40px,5vw,60px);font-weight:800;color:#FFFFFF;line-height:1">₪{{savedMoney}}</span>
-      </div>
-      <p style="font-size:15px;color:#8E93A1;line-height:1.6">זו הערכה כללית בלבד, לפי הנתונים שבחרתם.</p>
-    </div>
-  </div>
-  </div>
-  </sc-if>
 </div>
 
 <!-- HOW WE WORK -->
@@ -781,7 +739,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   </div>
   <div class="me-row rv">
     <div class="me-pic"><img src="../media/rubi.webp?v=ada39f9c" alt="רובי יניר פרקש" width="360" height="360" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></div>
-    <p style="font-size:18px;line-height:1.65;color:#D2D5DE">אני מפתח לעסקים מערכות שעושות את העבודה החוזרת במקומם. לפני כל פרויקט אני לומד איך העסק עובד ואיפה הולך הזמן, ורק אחר כך ניגש לעבודה. שנים בחינוך לימדו אותי להסביר בפשטות, ולכן המערכות שלי נשארות בשימוש גם אחרי שאני יוצא מהתמונה. Rubix Solutions יוצא עכשיו לדרך עם מחירי השקה ללקוחות הראשונים.</p>
+    <p style="font-size:18px;line-height:1.65;color:#D2D5DE">אני מפתח לעסקים מערכות שעושות את העבודה החוזרת במקומם. לפני כל פרויקט אני לומד איך העסק עובד ואיפה הולך הזמן, ורק אחר כך ניגש לעבודה. שנים בחינוך לימדו אותי להסביר בפשטות, ולכן המערכות שלי נשארות בשימוש גם אחרי שאני יוצא מהתמונה.</p>
   </div>
   <ol class="steps">
     <li class="step rv"><span class="st-n">1</span><div class="st-b"><div class="st-h"><h3>שיחת היכרות</h3><span>חינם</span></div><p>מספרים לי מה מציק ואני אומר בכנות אם יש פתרון ששווה את הזמן והכסף.</p></div></li>
@@ -855,7 +813,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
           <span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq0.sign}}</span>
         </button>
         <sc-if value="{{faq0.open}}" hint-placeholder-val="{{true}}">
-          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">בדיוק בשבילכם. אחרי שנים בהוראה, להסביר דברים מסובכים בפשטות זה מה שאני עושה הכי טוב. אני מתכנן כל כלי כך שתוכלו להשתמש בו לבד, ומלווה אתכם עד שהכלי נכנס לשגרה.</p>
+          <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">כן, ולא צריך שום ידע טכני. אחרי שנים בהוראה, להסביר דברים מסובכים בפשטות זה מה שאני עושה הכי טוב. אני מתכנן כל כלי כך שתוכלו להשתמש בו לבד, ומלווה אתכם עד שהכלי נכנס לשגרה.</p>
         </sc-if>
       </div>
       <div class="rv" style="border-bottom:1px solid rgba(255,255,255,0.1)">
