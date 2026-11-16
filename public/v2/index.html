@@ -33,9 +33,6 @@ p{margin:0}
 a{text-decoration:none;color:var(--accent)}
 a:hover{color:color-mix(in srgb,var(--accent) 65%,white)}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
-.grid-bg{background-image:linear-gradient(rgba(255,255,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.045) 1px,transparent 1px);background-size:56px 56px}
-.glow-a{position:absolute;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 62%);filter:blur(20px);animation:drift 14s ease-in-out infinite alternate;pointer-events:none}
-.glow-b{position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(94,114,255,0.24),transparent 62%);filter:blur(20px);animation:drift 18s ease-in-out infinite alternate-reverse;pointer-events:none}
 @keyframes drift{from{transform:translate(0,0)}to{transform:translate(60px,40px)}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 0%,transparent);border-color:rgba(255,255,255,0.12)}50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 12%,transparent);border-color:var(--accent)}}
 .n1{animation:pulse 4s ease-in-out infinite}
@@ -44,6 +41,7 @@ a:hover{color:color-mix(in srgb,var(--accent) 65%,white)}
 .n4{animation:pulse 4s ease-in-out 3s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .live{animation:blink 1.6s ease-in-out infinite}
+.h-sub{font-size:clamp(20px,2.1vw,26px);font-weight:400;line-height:1.45;color:#C4C8D2}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(50%)}}
 .track{animation:marquee 32s linear infinite}
 @keyframes caret{0%,100%{opacity:1}50%{opacity:0}}
@@ -124,7 +122,7 @@ a.m-link:hover{color:var(--accent)}
 }
 /* ===== Apple Premium layer ===== */
 :root{--spring:linear(0, 0.0268, 0.091, 0.1748, 0.2662, 0.3577, 0.4448, 0.5249, 0.5969, 0.6603, 0.7154, 0.7628, 0.8032, 0.8374, 0.8661, 0.89, 0.91, 0.9265, 0.9401, 0.9513, 0.9605, 0.968, 0.9741, 0.9791, 0.9831, 0.9864, 0.9891, 0.9912, 0.9929, 0.9943, 0.9955, 0.9964, 0.9971, 0.9977, 0.9981, 0.9985, 0.9988, 0.9991, 0.9992, 0.9994, 1);--spring-bounce:linear(0, 0.0276, 0.0964, 0.1891, 0.2931, 0.3993, 0.5013, 0.5954, 0.6793, 0.7519, 0.8134, 0.8642, 0.9051, 0.9375, 0.9623, 0.9809, 0.9943, 1.0036, 1.0096, 1.0131, 1.0148, 1.0152, 1.0146, 1.0135, 1.012, 1.0105, 1.0088, 1.0073, 1.0059, 1.0047, 1.0036, 1.0027, 1.0019, 1.0013, 1.0009, 1.0005, 1.0003, 1.0001, 0.9999, 0.9998, 1);--t-spring:640ms;--t-bounce:800ms;--t-press:90ms}
-.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60vmax 50vmax at 85% 10%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 60%),radial-gradient(55vmax 45vmax at 10% 85%,rgba(94,114,255,0.12),transparent 60%)}
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none}
 .ambient~*{position:relative;z-index:1}
 .ambient~.fab{position:fixed;z-index:80}
 .ambient~div[aria-hidden]{position:fixed}
@@ -262,14 +260,14 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 .seg{display:inline-flex;align-self:flex-start;gap:6px;padding:6px;border-radius:999px;background:var(--card);border:1px solid rgba(255,255,255,0.12)}
 .seg-b{border:0;cursor:pointer;font-family:var(--display);font-weight:800;font-size:17px;padding:12px 20px;border-radius:999px;min-height:46px}
 .me-row{display:flex;align-items:center;gap:22px}
-.me-pic{width:120px;height:120px;flex:none;border-radius:50%;padding:3px;background:var(--accent)}
+.me-pic{width:120px;height:120px;flex:none;border-radius:50%;padding:3px;background:rgba(255,255,255,0.18)}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .step{display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:22px;background:var(--glass);border:1px solid var(--glass-edge)}
-.st-n{width:40px;height:40px;flex:none;border-radius:14px;border:2px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:18px}
+.st-n{width:40px;height:40px;flex:none;border-radius:14px;border:2px solid rgba(255,255,255,0.25);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:18px}
 .st-b{display:flex;flex-direction:column;gap:6px;min-width:0}
 .st-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .st-h h3{font-size:19px;font-weight:800;color:#FFFFFF}
-.st-h span{font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--accent)}
+.st-h span{font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE}
 .step p{font-size:16px;line-height:1.55;color:#C4C8D2}
 .todo{background:rgba(255,214,107,0.14);color:#FFD66B;border:1px dashed #FFD66B;border-radius:6px;padding:0 6px;font-weight:700}
 .draft{align-self:flex-start;font-size:13px;font-weight:800;color:#FFD66B;border:1px dashed #FFD66B;border-radius:999px;padding:3px 10px}
@@ -277,7 +275,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 .pr{padding:24px;border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:8px}
 .pr-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
 .pr h3{font-size:20px;font-weight:800;color:#FFFFFF;line-height:1.25}
-.pr .pr-p{font-family:var(--display);font-size:22px;font-weight:800;color:var(--accent);white-space:nowrap}
+.pr .pr-p{font-family:var(--display);font-size:22px;font-weight:800;color:#FFFFFF;white-space:nowrap}
 .pr p{font-size:16px;line-height:1.55;color:#C4C8D2}
 .tm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
 .tm{margin:0;padding:34px;border-radius:28px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:20px}
@@ -290,15 +288,15 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 .motion-btn{align-self:flex-start;background:none;border:0;padding:8px 0;min-height:44px;font-family:inherit;font-size:14px;font-weight:600;color:#A9ADBA;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .motion-btn:hover{color:#FFFFFF}
 .pr-svc{padding:24px;border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:14px}
-.pr-svc>h3{font-size:21px;font-weight:800;color:var(--accent)}
+.pr-svc>h3{font-size:21px;font-weight:800;color:#FFFFFF}
 .pr-row{display:flex;flex-direction:column;gap:4px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08)}
 .pr-row:first-of-type{padding-top:0;border-top:0}
 .pr-line{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .pr-line b{font-size:18px;font-weight:800;color:#FFFFFF}
 .pr-row p{font-size:15.5px;line-height:1.55;color:#C4C8D2}
 .pr-svc .pr-p{font-family:var(--display);font-size:20px;font-weight:800;color:#FFFFFF;white-space:nowrap}
-.pr-group{display:flex;align-items:center;gap:14px;font-size:20px;font-weight:800;color:var(--accent)}
-.pr-group::after{content:"";flex:1;height:1px;background:color-mix(in srgb,var(--accent) 35%,transparent)}
+.pr-group{display:flex;align-items:center;gap:14px;font-size:20px;font-weight:800;color:#FFFFFF}
+.pr-group::after{content:"";flex:1;height:1px;background:rgba(255,255,255,0.16)}
 .ct-links{display:flex;flex-wrap:wrap;gap:12px}
 .ct-links .contact-line{display:flex;flex-direction:column;gap:2px;padding:14px 18px;border-radius:18px;border:1px solid rgba(255,255,255,0.12);min-width:0}
 .ct-links .contact-line span{font-size:13px;color:#A9ADBA;font-weight:600}
@@ -349,7 +347,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 </sc-if>
 
 <!-- SCROLL PROGRESS -->
-<div aria-hidden="true" style="position:fixed;top:0;right:0;left:0;height:3px;background:var(--accent);z-index:95;pointer-events:none;transform-origin:right center;transform:scaleX({{progScale}});will-change:transform"></div>
+<div aria-hidden="true" style="position:fixed;top:0;right:0;left:0;height:3px;background:rgba(255,255,255,0.5);z-index:95;pointer-events:none;transform-origin:right center;transform:scaleX({{progScale}});will-change:transform"></div>
 
 <!-- NAV -->
 <header style="position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 58%,transparent);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(255,255,255,0.07)">
@@ -384,19 +382,17 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 <main id="main">
 <!-- HERO -->
-<div id="top" class="grid-bg" style="position:relative;border-bottom:1px solid rgba(255,255,255,0.08)">
-  <div class="glow-a" style="top:-220px;right:-160px"></div>
-  <div class="glow-b" style="bottom:-260px;left:-200px"></div>
+<div id="top" style="position:relative;border-bottom:1px solid rgba(255,255,255,0.08)">
   <div class="hero stack" style="position:relative;max-width:1280px;margin:0 auto;padding:120px 32px 110px;display:flex;gap:64px;align-items:center;flex-wrap:wrap">
 
     <div style="flex:1 1 540px;min-width:0;max-width:900px;display:flex;flex-direction:column;gap:28px">
-      <div class="rise" style="--d:0ms;display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);background:color-mix(in srgb,var(--accent) 8%,transparent);color:color-mix(in srgb,var(--accent) 65%,white);font-weight:700;font-size:16px">
-        <span class="live" style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></span>
+      <div class="rise" style="--d:0ms;display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.05);color:#D2D5DE;font-weight:700;font-size:16px">
+        <span class="live" style="width:8px;height:8px;border-radius:50%;background:#D2D5DE"></span>
         פתוח לפרויקטים חדשים
       </div>
       <h1 class="rise" style="--d:70ms;font-size:clamp(44px,6.6vw,92px);font-weight:800;line-height:1.04;letter-spacing:-0.025em;color:#FFFFFF">העסק שלכם עובד<br><span style="color:var(--accent)">גם כשאתם לא</span></h1>
       <div class="rise" style="--d:140ms;font-family:var(--display);font-size:clamp(23px,2.8vw,36px);font-weight:700;line-height:1.35;color:#D2D5DD;min-height:2.7em">
-        נעים מאוד, אני רובי. אני בונה לעסקים <span style="color:#FFFFFF;border-bottom:3px solid var(--accent)">{{word}}</span><span class="caret" style="color:var(--accent)">|</span>
+        נעים מאוד, אני רובי. אני בונה לעסקים <span style="color:#FFFFFF;border-bottom:3px solid rgba(255,255,255,0.3)">{{word}}</span><span class="caret" style="color:#D2D5DE">|</span>
       </div>
       <p class="rise" style="--d:210ms;font-size:clamp(19px,1.6vw,22px);line-height:1.7;color:#C4C8D2;max-width:600px">העבודה שחוזרת על עצמה כל יום יכולה לרוץ לבד. אני מתאים לכם את הכלים שעושים אותה ומלווה אתכם עד שהם נכנסים לשגרה.</p>
       <div class="rise" style="--d:280ms;display:flex;gap:14px;flex-wrap:wrap;padding-top:4px">
@@ -436,8 +432,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="work" style="background:var(--bg2);border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)">
   <div class="sec" style="max-width:1280px;margin:0 auto;padding:130px 32px;display:flex;flex-direction:column;gap:56px">
     <div class="rv" style="display:flex;flex-direction:column;gap:18px;max-width:760px">
-      <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">עבודות נבחרות</span>
-      <h2 style="font-size:clamp(34px,4.6vw,62px);font-weight:800;line-height:1.08;color:#FFFFFF">עבודות שיצרתי<br><span style="color:#7C8190">ככה זה נראה בפועל</span></h2>
+      <h2 style="font-size:clamp(34px,4.6vw,62px);font-weight:800;line-height:1.08;color:#FFFFFF">עבודות שיצרתי</h2>
+      <p class="h-sub">ככה זה נראה בפועל</p>
     </div>
 
     <div class="wk-hint rv" aria-hidden="true">החליקו לעוד עבודות ←</div>
@@ -447,7 +443,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
         <button type="button" class="vbtn vprev" onClick="{{openV0}}" aria-label="צפו בסרטון: מערכת לניהול תוכן ולקוחות"><picture><source media="(prefers-reduced-motion: reduce)" srcset="../media/desk-still.jpg?v=23450b25"><img src="../media/desk-preview.webp?v=89978263" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span></button>
         <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:15px;color:var(--accent);font-weight:800">דשבורד + סוכני AI</span>
+          <span style="font-size:15px;color:#A9ADBA;font-weight:800">דשבורד + סוכני AI</span>
           <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">מערכת לניהול תוכן ולקוחות</h3>
           <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">דשבורד שמרכז את כל הלקוחות ותוכנית התוכן, עם סוכני AI שכותבים כל פוסט בסגנון של הלקוח. נשאר רק לאשר.</p>
         </div>
@@ -457,7 +453,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
         <button type="button" class="vbtn vprev" onClick="{{openV1}}" aria-label="צפו בסרטון: אוטומציה שממיינת פניות לפי דחיפות"><picture><source media="(prefers-reduced-motion: reduce)" srcset="../media/automation-still.jpg?v=cca0e26f"><img src="../media/automation-preview.webp?v=7d8523f1" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span></button>
         <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:15px;color:var(--accent);font-weight:800">אוטומציה · Make · הדגמה</span>
+          <span style="font-size:15px;color:#A9ADBA;font-weight:800">אוטומציה · Make · הדגמה</span>
           <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">אוטומציה שממיינת פניות לפי דחיפות</h3>
           <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">כל פנייה מקבלת סיכום קצר וציון דחיפות. כל בוקר מגיע מייל עם 5 הפניות הכי דחופות.</p>
         </div>
@@ -467,7 +463,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
         <button type="button" class="vbtn vprev" onClick="{{openV2}}" aria-label="צפו בסרטון: סוכן AI שבודק ומתקן תוכן"><picture><source media="(prefers-reduced-motion: reduce)" srcset="../media/agent-still.jpg?v=4f8a0531"><img src="../media/agent-preview.webp?v=3b17c31c" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span></button>
         <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:15px;color:var(--accent);font-weight:800">סוכן AI · Make</span>
+          <span style="font-size:15px;color:#A9ADBA;font-weight:800">סוכן AI · Make</span>
           <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">סוכן AI שבודק ומתקן תוכן</h3>
           <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">סוכן שבודק כל טיוטה מול פרופיל הלקוח ומתקן אותה לפני שהיא מגיעה אליכם.</p>
         </div>
@@ -477,7 +473,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="card" style="border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);overflow:hidden;display:flex;flex-direction:column">
         <button type="button" class="vbtn vprev" onClick="{{openV3}}" aria-label="צפו בסרטון: אתר עם אוטומציה מובנית"><picture><source media="(prefers-reduced-motion: reduce)" srcset="../media/website-still.jpg?v=193d842b"><img src="../media/website-preview.webp?v=e1b3c837" alt="" loading="lazy" decoding="async" class="vimg"></picture><span class="vshade"></span><span class="vplay"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 7 5.5z"></path></svg>צפו בסרטון</span></button>
         <div class="pad" style="padding:30px 32px 32px;display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:15px;color:var(--accent);font-weight:800">אתר + אוטומציה</span>
+          <span style="font-size:15px;color:#A9ADBA;font-weight:800">אתר + אוטומציה</span>
           <h3 style="font-size:24px;font-weight:800;color:#FFFFFF">אתר עם אוטומציה מובנית</h3>
           <p class="wk-p" style="font-size:18px;line-height:1.6;color:#C4C8D2">אני בונה את האתר ומחבר אליו אוטומציות שעונות ללקוחות, שומרות פניות ומעדכנות אתכם. בסרטון: הדגמה לקליניקה.</p>
         </div>
@@ -492,18 +488,18 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <sc-if value="{{showTestimonials}}" hint-placeholder-val="{{false}}">
 <div id="trust" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px 0;display:flex;flex-direction:column;gap:36px">
   <div class="rv" style="display:flex;flex-direction:column;gap:14px;max-width:760px">
-    <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מה אומרים</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">הלקוחות הראשונים שלי<br><span style="color:#7C8190">מספרים בעצמם</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">הלקוחות הראשונים שלי</h2>
+    <p class="h-sub">מספרים בעצמם</p>
   </div>
   <div class="tm-grid">
     <figure class="card tm rv">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--accent)"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">אתר תדמית ומידע</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:#7C8190"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">אתר תדמית ומידע</span></div>
       <span class="draft">טיוטה · ממתינה לאישור</span>
       <blockquote>רובי בנה לנו אתר שמספר את הסיפור של בית הספר כמו שהוא באמת: מי אנחנו, במה אנחנו מאמינים ומה קורה אצלנו. הוא הקשיב, שאל את השאלות הנכונות, והתוצאה מדויקת, מרשימה ונראית מצוין גם בטלפון.</blockquote>
       <figcaption><b>מיקי שומרון</b><span>מנהלת בית ספר גלבוע בית אלפא</span></figcaption>
     </figure>
     <figure class="card tm rv">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--accent)"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">דשבורד + סוכני AI</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:#7C8190"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">דשבורד + סוכני AI</span></div>
       <span class="draft">טיוטה · ממתינה לאישור</span>
       <blockquote>רובי בנה לי דשבורד שמרכז את כל הלקוחות ותוכנית התוכן במקום אחד, עם סוכני AI שכותבים טיוטות בסגנון של כל לקוח ובודקים אותן לפני שהן מגיעות אליי. מה שלקח לי שעות כל שבוע, היום לוקח דקות.</blockquote>
       <figcaption><b>הדס <mark class="todo">[להשלים: שם משפחה]</mark></b><span><mark class="todo">[להשלים: שם העסק]</mark> · שיווק דיגיטלי</span></figcaption>
@@ -515,27 +511,23 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <!-- SERVICES -->
 <div id="services" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:36px">
   <div class="rv" style="display:flex;flex-direction:column;gap:14px;max-width:760px">
-    <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">במה אני עוזר</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">כלים שנכנסים לשגרה<br><span style="color:#7C8190">לא נשארים על המדף</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">כלים שנכנסים לשגרה</h2>
+    <p class="h-sub">לא נשארים על המדף</p>
   </div>
   <div class="sv-grid">
     <div class="card sv-tile rv" style="border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge)">
-      <span class="mono" style="font-size:15px;font-weight:700;color:var(--accent)">01</span>
       <h3 style="font-size:20px;font-weight:800;color:#FFFFFF;line-height:1.25">דשבורדים לניהול</h3>
       <p style="font-size:16px;line-height:1.5;color:#C4C8D2">רואים את כל העסק במסך אחד</p>
     </div>
     <div class="card sv-tile rv" style="border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge)">
-      <span class="mono" style="font-size:15px;font-weight:700;color:var(--accent)">02</span>
       <h3 style="font-size:20px;font-weight:800;color:#FFFFFF;line-height:1.25">אוטומציות וסוכני AI</h3>
       <p style="font-size:16px;line-height:1.5;color:#C4C8D2">העבודה החוזרת מתרחשת לבד ללא שום תיווך</p>
     </div>
     <div class="card sv-tile rv" style="border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge)">
-      <span class="mono" style="font-size:15px;font-weight:700;color:var(--accent)">03</span>
       <h3 style="font-size:20px;font-weight:800;color:#FFFFFF;line-height:1.25">סדנאות AI לצוותים</h3>
       <p style="font-size:16px;line-height:1.5;color:#C4C8D2">יוצאים עם כלים לשימוש מיידי</p>
     </div>
     <div class="card sv-tile rv" style="border-radius:24px;background:var(--glass);border:1px solid var(--glass-edge)">
-      <span class="mono" style="font-size:15px;font-weight:700;color:var(--accent)">04</span>
       <h3 style="font-size:20px;font-weight:800;color:#FFFFFF;line-height:1.25">אתרים ואפליקציות</h3>
       <p style="font-size:16px;line-height:1.5;color:#C4C8D2">שאתם מעדכנים לבד, בלי לחכות לאף אחד</p>
     </div>
@@ -545,8 +537,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <!-- STORIES + CALCULATOR -->
 <div id="stories" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:30px">
   <div class="rv" style="display:flex;flex-direction:column;gap:14px;max-width:780px">
-    <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מה זה יכול לעשות בשבילכם?</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">בחרו מה מוכר לכם<br><span style="color:#7C8190">או בדקו כמה זה חוסך</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">בחרו מה מוכר לכם</h2>
+    <p class="h-sub">או בדקו כמה זה חוסך</p>
   </div>
   <div class="seg rv" role="tablist" aria-label="בחירת תצוגה">
     <button type="button" role="tab" class="seg-b press" aria-selected="{{modeStories}}" onClick="{{pickStories}}" style="background:{{segA.bg}};color:{{segA.fg}}">מה גוזל לכם זמן?</button>
@@ -567,7 +559,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <sc-if value="{{story0}}" hint-placeholder-val="{{true}}">
   <div class="panel panel-in" style="padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">סוכן AI</span>
+      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">סוכן AI</span>
       <span style="font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:#FFFFFF">בעלת סטודיו לפילאטיס</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
@@ -575,8 +567,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#A9ADBA"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9ADBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>לפני</span>
         <p style="font-size:19px;line-height:1.7;color:#D2D5DD">כל ערב היא יושבת מול הוואטסאפ ועונה על אותן שאלות: כמה זה עולה, מתי יש שיעור, ואם נשאר מקום.</p>
       </div>
-      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);display:flex;flex-direction:column;gap:12px">
-        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--accent)"><svg style="color:var(--accent)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
+      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;gap:12px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#D2D5DE"><svg style="color:#D2D5DE" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
         <p style="font-size:19px;line-height:1.7;color:#EDEEF2">סוכן AI עונה מיד על השאלות הקבועות, רושם לשיעור, ומעביר אליה רק את מה שבאמת צריך אותה.</p>
       </div>
     </div>
@@ -589,7 +581,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <sc-if value="{{story1}}" hint-placeholder-val="{{false}}">
   <div class="panel panel-in" style="padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">אוטומציה</span>
+      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">אוטומציה</span>
       <span style="font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:#FFFFFF">בעל עסק לשיפוצים</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
@@ -597,8 +589,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#A9ADBA"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9ADBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>לפני</span>
         <p style="font-size:19px;line-height:1.7;color:#D2D5DD">כל פנייה מהאתר מועתקת ידנית לגיליון ואחר כך ליומן. לפעמים הוא פשוט שוכח לחזור ללקוח.</p>
       </div>
-      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);display:flex;flex-direction:column;gap:12px">
-        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--accent)"><svg style="color:var(--accent)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
+      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;gap:12px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#D2D5DE"><svg style="color:#D2D5DE" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
         <p style="font-size:19px;line-height:1.7;color:#EDEEF2">כל פנייה נכנסת לבד לגיליון וליומן, ובכל בוקר מגיעה לו תזכורת קצרה למי להתקשר היום.</p>
       </div>
     </div>
@@ -611,7 +603,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <sc-if value="{{story2}}" hint-placeholder-val="{{false}}">
   <div class="panel panel-in" style="padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">דשבורד</span>
+      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">דשבורד</span>
       <span style="font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:#FFFFFF">יועצת עם כמה לקוחות במקביל</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
@@ -619,8 +611,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#A9ADBA"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9ADBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>לפני</span>
         <p style="font-size:19px;line-height:1.7;color:#D2D5DD">המידע מפוזר בין מיילים, גיליונות ופתקים. כל שאלה פשוטה כמו "איפה עומד הלקוח הזה?" דורשת חיפוש.</p>
       </div>
-      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);display:flex;flex-direction:column;gap:12px">
-        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--accent)"><svg style="color:var(--accent)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
+      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;gap:12px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#D2D5DE"><svg style="color:#D2D5DE" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
         <p style="font-size:19px;line-height:1.7;color:#EDEEF2">דשבורד אחד שמראה בדיוק איפה עומד כל לקוח, מה מחכה לה, ומה הצעד הבא.</p>
       </div>
     </div>
@@ -633,7 +625,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <sc-if value="{{story3}}" hint-placeholder-val="{{false}}">
   <div class="panel panel-in" style="padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">סוכן AI לבית</span>
+      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">סוכן AI לבית</span>
       <span style="font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:#FFFFFF">הורים לשלושה ילדים</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
@@ -641,8 +633,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#A9ADBA"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9ADBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>לפני</span>
         <p style="font-size:19px;line-height:1.7;color:#D2D5DD">מיילים מבית הספר, מהחוגים ומהוועד. כל אסיפה וכל טיול מתגלים ברגע האחרון.</p>
       </div>
-      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);display:flex;flex-direction:column;gap:12px">
-        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--accent)"><svg style="color:var(--accent)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
+      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;gap:12px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#D2D5DE"><svg style="color:#D2D5DE" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
         <p style="font-size:19px;line-height:1.7;color:#EDEEF2">סוכן קורא את המיילים, מכניס כל תאריך ליומן המשפחתי, ושולח סיכום קצר בכל יום ראשון.</p>
       </div>
     </div>
@@ -655,7 +647,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <sc-if value="{{story4}}" hint-placeholder-val="{{false}}">
   <div class="panel panel-in" style="padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">אתר תדמית</span>
+      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">אתר תדמית</span>
       <span style="font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:#FFFFFF">מאמנת כושר אישית</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
@@ -663,8 +655,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#A9ADBA"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9ADBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>לפני</span>
         <p style="font-size:19px;line-height:1.7;color:#D2D5DD">כל הלקוחות מגיעים רק מפה לאוזן. מי שמחפש אותה בגוגל מוצא עמוד פייסבוק ישן, או לא מוצא כלום.</p>
       </div>
-      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);display:flex;flex-direction:column;gap:12px">
-        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--accent)"><svg style="color:var(--accent)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
+      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;gap:12px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#D2D5DE"><svg style="color:#D2D5DE" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
         <p style="font-size:19px;line-height:1.7;color:#EDEEF2">אתר תדמית נקי שמציג מי היא, מה היא מציעה ואיך מתחילים, עם טופס שמגיע ישר לוואטסאפ שלה.</p>
       </div>
     </div>
@@ -677,7 +669,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <sc-if value="{{story5}}" hint-placeholder-val="{{false}}">
   <div class="panel panel-in" style="padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">אוטומציה + AI</span>
+      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">אוטומציה + AI</span>
       <span style="font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:#FFFFFF">בעל עסק להגברה ואירועים</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
@@ -685,8 +677,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#A9ADBA"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9ADBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>לפני</span>
         <p style="font-size:19px;line-height:1.7;color:#D2D5DD">כל הצעת מחיר נכתבת מאפס. עד שהיא נשלחת, הלקוח כבר סגר עם מישהו אחר.</p>
       </div>
-      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);display:flex;flex-direction:column;gap:12px">
-        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--accent)"><svg style="color:var(--accent)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
+      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;gap:12px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#D2D5DE"><svg style="color:#D2D5DE" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
         <p style="font-size:19px;line-height:1.7;color:#EDEEF2">הלקוח ממלא טופס קצר, ותוך דקות מחכה לו טיוטת הצעת מחיר מסודרת לאישור.</p>
       </div>
     </div>
@@ -699,7 +691,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <sc-if value="{{story6}}" hint-placeholder-val="{{false}}">
   <div class="panel panel-in" style="padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">אוטומציית תוכן</span>
+      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">אוטומציית תוכן</span>
       <span style="font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:#FFFFFF">מעצבת פנים</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
@@ -707,8 +699,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#A9ADBA"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9ADBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>לפני</span>
         <p style="font-size:19px;line-height:1.7;color:#D2D5DD">היא יודעת שצריך לפרסם באופן קבוע, אבל כל פוסט לוקח שעה. בסוף עוברים שבועות בלי כלום.</p>
       </div>
-      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);display:flex;flex-direction:column;gap:12px">
-        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--accent)"><svg style="color:var(--accent)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
+      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;gap:12px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#D2D5DE"><svg style="color:#D2D5DE" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
         <p style="font-size:19px;line-height:1.7;color:#EDEEF2">כל שבוע מגיעות אליה טיוטות פוסטים בסגנון שלה, מוכנות לאישור בלחיצה.</p>
       </div>
     </div>
@@ -721,7 +713,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <sc-if value="{{story7}}" hint-placeholder-val="{{false}}">
   <div class="panel panel-in" style="padding:40px;border-radius:32px;background:var(--glass);border:1px solid var(--glass-edge);display:flex;flex-direction:column;gap:28px">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)">סדנת AI</span>
+      <span style="font-size:15px;font-weight:800;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">סדנת AI</span>
       <span style="font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;color:#FFFFFF">מנהלת משרד עם שישה עובדים</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px">
@@ -729,8 +721,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#A9ADBA"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9ADBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>לפני</span>
         <p style="font-size:19px;line-height:1.7;color:#D2D5DD">כולם שמעו על AI. חלק מנסים לבד, אבל אף אחד לא באמת חוסך זמן.</p>
       </div>
-      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);display:flex;flex-direction:column;gap:12px">
-        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--accent)"><svg style="color:var(--accent)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
+      <div class="pad-sm" style="padding:28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;gap:12px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#D2D5DE"><svg style="color:#D2D5DE" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>אחרי</span>
         <p style="font-size:19px;line-height:1.7;color:#EDEEF2">סדנה מעשית סביב המשימות האמיתיות של המשרד. כל עובד יוצא עם כלים שהוא משתמש בהם כבר בסיום המפגש.</p>
       </div>
     </div>
@@ -765,7 +757,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       </div>
     </div>
     <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:20px">
-      <div style="flex:1;padding:36px;border-radius:32px;background:var(--glass);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);display:flex;flex-direction:column;justify-content:center;gap:8px">
+      <div style="flex:1;padding:36px;border-radius:32px;background:var(--glass);border:1px solid rgba(255,255,255,0.16);display:flex;flex-direction:column;justify-content:center;gap:8px">
         <span style="font-size:18px;font-weight:700;color:#C4C8D2">שעות שחוזרות אליכם בחודש</span>
         <span style="font-family:var(--display);font-size:clamp(48px,6vw,72px);font-weight:800;color:var(--accent);line-height:1">{{savedHours}}</span>
       </div>
@@ -784,8 +776,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="process" style="background:var(--bg2);border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)">
 <div id="about" class="sec" style="max-width:1080px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:32px">
   <div class="rv" style="display:flex;flex-direction:column;gap:14px">
-    <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">איך עובדים איתי</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מדברים ישירות<br><span style="color:#7C8190">עם מי שעושה את העבודה</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מדברים ישירות</h2>
+    <p class="h-sub">עם מי שעושה את העבודה</p>
   </div>
   <div class="me-row rv">
     <div class="me-pic"><img src="../media/rubi.webp?v=ada39f9c" alt="רובי יניר פרקש" width="360" height="360" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></div>
@@ -804,8 +796,8 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <sc-if value="{{showPricing}}" hint-placeholder-val="{{false}}">
 <div id="pricing" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:32px">
   <div class="rv" style="display:flex;flex-direction:column;gap:14px;max-width:780px">
-    <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מחירים</span>
-    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מחירי השקה<br><span style="color:#7C8190">סופיים, אין מע״מ</span></h2>
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">מחירי השקה</h2>
+    <p class="h-sub">סופיים, אין מע״מ</p>
     <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">אלה מחירים ללקוחות הראשונים. אני עוסק פטור, ולכן לא גובה מע״מ בכלל. המחיר שמופיע כאן הוא המחיר הסופי שתשלמו, בלי שום תוספת. המחיר המדויק נקבע מראש בשיחת ההיכרות.</p>
   </div>
   <div class="pr-grid">
@@ -854,14 +846,13 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 <div id="faq" style="background:var(--bg2);border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)">
   <div class="sec" style="max-width:940px;margin:0 auto;padding:130px 32px;display:flex;flex-direction:column;gap:44px">
     <div class="rv" style="display:flex;flex-direction:column;gap:18px">
-      <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">שאלות</span>
       <h2 style="font-size:clamp(34px,4.2vw,56px);font-weight:800;line-height:1.1;color:#FFFFFF">שאלות שחוזרות</h2>
     </div>
     <div style="display:flex;flex-direction:column">
       <div class="rv" style="border-bottom:1px solid rgba(255,255,255,0.1)">
         <button type="button" class="faq-q" onClick="{{faq0.toggle}}" style="width:100%;background:none;border:none;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;text-align:right;font-family:var(--display);font-size:clamp(20px,2.2vw,24px);font-weight:800;color:#FFFFFF">
           <span>אני לא טכנולוגי. זה יתאים לי?</span>
-          <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq0.sign}}</span>
+          <span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq0.sign}}</span>
         </button>
         <sc-if value="{{faq0.open}}" hint-placeholder-val="{{true}}">
           <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">בדיוק בשבילכם. אחרי שנים בהוראה, להסביר דברים מסובכים בפשטות זה מה שאני עושה הכי טוב. אני מתכנן כל כלי כך שתוכלו להשתמש בו לבד, ומלווה אתכם עד שהכלי נכנס לשגרה.</p>
@@ -870,7 +861,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="rv" style="border-bottom:1px solid rgba(255,255,255,0.1)">
         <button type="button" class="faq-q" onClick="{{faq1.toggle}}" style="width:100%;background:none;border:none;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;text-align:right;font-family:var(--display);font-size:clamp(20px,2.2vw,24px);font-weight:800;color:#FFFFFF">
           <span>מה ההבדל בין אוטומציה לסוכן AI?</span>
-          <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq1.sign}}</span>
+          <span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq1.sign}}</span>
         </button>
         <sc-if value="{{faq1.open}}" hint-placeholder-val="{{false}}">
           <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אוטומציה עושה את אותו הדבר בכל פעם, לפי כללים קבועים. סוכן AI יודע גם להחליט: לקרוא מייל, להבין מה צריך, ולבחור מה לעשות איתו.</p>
@@ -879,7 +870,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="rv" style="border-bottom:1px solid rgba(255,255,255,0.1)">
         <button type="button" class="faq-q" onClick="{{faq2.toggle}}" style="width:100%;background:none;border:none;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;text-align:right;font-family:var(--display);font-size:clamp(20px,2.2vw,24px);font-weight:800;color:#FFFFFF">
           <span>צריך להחליף את המערכות שיש לי היום?</span>
-          <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq2.sign}}</span>
+          <span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq2.sign}}</span>
         </button>
         <sc-if value="{{faq2.open}}" hint-placeholder-val="{{false}}">
           <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">בדרך כלל לא. ברוב המקרים אני מחבר בין הכלים שכבר עובדים אצלכם, כך שלא צריך ללמוד הכל מחדש.</p>
@@ -888,7 +879,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="rv" style="border-bottom:1px solid rgba(255,255,255,0.1)">
         <button type="button" class="faq-q" onClick="{{faq3.toggle}}" style="width:100%;background:none;border:none;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;text-align:right;font-family:var(--display);font-size:clamp(20px,2.2vw,24px);font-weight:800;color:#FFFFFF">
           <span>כמה זה עולה?</span>
-          <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq3.sign}}</span>
+          <span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq3.sign}}</span>
         </button>
         <sc-if value="{{faq3.open}}" hint-placeholder-val="{{false}}">
           <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">זה תלוי בגודל הפרויקט. אחרי שיחת ההיכרות תקבלו הצעה מסודרת עם מחיר קבוע מראש ולוח זמנים. אני עוסק פטור, כך שלא מתווסף מע״מ.</p>
@@ -897,7 +888,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="rv" style="border-bottom:1px solid rgba(255,255,255,0.1)">
         <button type="button" class="faq-q" onClick="{{faq5.toggle}}" style="width:100%;background:none;border:none;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;text-align:right;font-family:var(--display);font-size:clamp(20px,2.2vw,24px);font-weight:800;color:#FFFFFF">
           <span>כמה זמן לוקח עד שזה עובד?</span>
-          <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq5.sign}}</span>
+          <span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq5.sign}}</span>
         </button>
         <sc-if value="{{faq5.open}}" hint-placeholder-val="{{false}}">
           <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אני עובד מהר. אוטומציה אחת או דף נחיתה מוכנים בדרך כלל תוך כמה ימים, וסוכן AI או אתר תוך שבוע עד שבועיים. לוח הזמנים המדויק מופיע בהצעת המחיר, ואתם רואים את ההתקדמות לאורך כל הדרך.</p>
@@ -906,7 +897,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
       <div class="rv" style="border-bottom:1px solid rgba(255,255,255,0.1)">
         <button type="button" class="faq-q" onClick="{{faq4.toggle}}" style="width:100%;background:none;border:none;padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;text-align:right;font-family:var(--display);font-size:clamp(20px,2.2vw,24px);font-weight:800;color:#FFFFFF">
           <span>מה קורה אחרי שהפרויקט נגמר?</span>
-          <span style="width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq4.sign}}</span>
+          <span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;flex-shrink:0">{{faq4.sign}}</span>
         </button>
         <sc-if value="{{faq4.open}}" hint-placeholder-val="{{false}}">
           <p class="faq-a" style="font-size:19px;line-height:1.75;color:#D2D5DD;padding:0 0 28px;max-width:780px">אני לא נעלם. מלמד אתכם לעבוד עם המערכת ונשאר זמין לשאלות, תיקונים ושיפורים.</p>
@@ -919,11 +910,10 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 <!-- CONTACT -->
 <div id="contact" style="position:relative;overflow:hidden">
-  <div class="glow-a" style="bottom:-300px;left:-100px"></div>
   <div class="sec" style="position:relative;max-width:940px;margin:0 auto;padding:110px 32px 130px;display:flex;flex-direction:column;gap:26px">
     <div class="rv" style="display:flex;flex-direction:column;gap:14px">
-      <span class="eyebrow" style="font-size:18px;font-weight:800;color:var(--accent)">מתחילים כאן</span>
-      <h2 style="font-size:clamp(34px,4.6vw,60px);font-weight:800;line-height:1.06;color:#FFFFFF">בואו נדבר<br><span style="color:var(--accent)">שיחת היכרות חינם</span></h2>
+      <h2 style="font-size:clamp(34px,4.6vw,60px);font-weight:800;line-height:1.06;color:#FFFFFF">בואו נדבר</h2>
+      <p class="h-sub">שיחת היכרות חינם</p>
       <p class="lead" style="font-size:19px;line-height:1.6;color:#C4C8D2">ספרו לי מה גוזל לכם זמן, ונבדוק יחד אם יש פתרון ששווה לכם את ההשקעה. בלי התחייבות.</p>
     </div>
     <a class="cta ct-main rv" href="{{waHref}}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:18px 30px;border-radius:999px;font-weight:800;font-size:19px"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.8-4.5-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"></path></svg>דברו איתי בוואטסאפ</a>
