@@ -264,6 +264,17 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media (prefers-reduced-motion:reduce){.sv-in{transition:none;transform:none !important}.sv-back{transform:none}.sv-face{transition:opacity .2s ease,visibility 0s}.sv-card[data-flipped="true"] .sv-front,.sv-card:not([data-flipped="true"]) .sv-back{opacity:0;transition:opacity .2s ease,visibility 0s linear .2s}}
 .calm .sv-in{transition:none;transform:none !important}.calm .sv-back{transform:none}.calm .sv-card[data-flipped="true"] .sv-front,.calm .sv-card:not([data-flipped="true"]) .sv-back{opacity:0}
+/* what I build: a row of words with small dots between them (no commas); the dots are drawn, so screen readers just read a list */
+.hero-tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;row-gap:6px;font-size:clamp(20px,2vw,26px);font-weight:600;line-height:1.45;color:#EDEEF2}
+.hero-tags li{display:inline-flex;align-items:center}
+.hero-tags li+li::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.4);margin:0 14px}
+.ft-tags{margin-top:14px;font-size:15px;font-weight:500;color:#A9ADBA}
+.ft-tags li+li::before{width:4px;height:4px;margin:0 9px}
+/* phones: the row would wrap and leave a dot at the start of a line, so it becomes two neat pairs, each word with its own dot */
+@media (max-width:600px){
+  .hero-tags:not(.ft-tags){display:grid;grid-template-columns:auto auto;justify-content:start;column-gap:24px}
+  .hero-tags:not(.ft-tags) li::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.4);margin:0;margin-inline-end:10px;flex:none}
+}
 /* why rubix: a calm two-column list, everything visible */
 .why{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px}
 .why-i{display:flex;gap:18px;align-items:flex-start;padding:26px 0;border-top:1px solid rgba(255,255,255,0.10)}
@@ -417,11 +428,10 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
         פתוח לפרויקטים חדשים
       </div>
       <h1 class="rise" style="--d:70ms;font-size:clamp(44px,6.6vw,92px);font-weight:800;line-height:1.04;letter-spacing:-0.025em;color:#FFFFFF">העסק שלכם עובד<br><span style="color:var(--accent)">גם כשאתם לא</span></h1>
-      <p class="rise" style="--d:105ms;font-size:clamp(20px,2vw,26px);font-weight:600;line-height:1.45;color:#EDEEF2;max-width:720px">אוטומציות, מערכות ניהול, פתרונות AI ואתרים לעסקים קטנים</p>
-      <div class="rise" style="--d:140ms;font-family:var(--display);font-size:clamp(23px,2.8vw,36px);font-weight:700;line-height:1.35;color:#D2D5DD;min-height:2.7em">
-        נעים מאוד, אני רובי. אני בונה לעסקים <span style="color:#FFFFFF;border-bottom:3px solid rgba(255,255,255,0.3)">{{word}}</span><span class="caret" style="color:#D2D5DE">|</span>
-      </div>
-      <p class="rise" style="--d:210ms;font-size:clamp(19px,1.6vw,22px);line-height:1.7;color:#C4C8D2;max-width:600px">העבודה שחוזרת על עצמה כל יום יכולה לרוץ לבד. אני מתאים לכם את הכלים שעושים אותה ומלווה אתכם עד שהם נכנסים לשגרה.</p>
+      <ul class="hero-tags rise" style="--d:105ms">
+        <li>אוטומציות</li><li>מערכות ניהול</li><li>פתרונות AI</li><li>אתרים</li>
+      </ul>
+      <p class="rise" style="--d:210ms;font-size:clamp(19px,1.6vw,22px);line-height:1.7;color:#C4C8D2;max-width:600px">העבודה שחוזרת על עצמה כל יום בעסק שלכם יכולה לרוץ לבד. אני מתאים לעסקים קטנים את הכלים שעושים אותה ומלווה אתכם עד שהם נכנסים לשגרה.</p>
       <div class="rise" style="--d:280ms;display:flex;gap:14px;flex-wrap:wrap;padding-top:4px">
         <a class="cta" href="#contact" style="padding:18px 34px;border-radius:999px;font-weight:800;font-size:19px">לשיחת היכרות חינם</a>
       </div>
@@ -999,7 +1009,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
   <div class="ft rv">
     <div class="ft-brand">
       <span class="ft-name"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink:0"><rect x="0" y="0" width="40" height="40" rx="11" style="fill:var(--accent)"></rect><g fill="none" style="stroke:var(--bg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 30V10h8a6 6 0 010 12h-8"></path><path d="M20 22l7 8"></path></g><g style="fill:var(--bg)"><circle cx="13" cy="30" r="3.2"></circle><circle cx="27" cy="30" r="3.2"></circle><circle cx="13" cy="10" r="3.2"></circle></g><circle cx="13" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="27" cy="30" r="1.3" style="fill:var(--accent)"></circle><circle cx="13" cy="10" r="1.3" style="fill:var(--accent)"></circle></svg><span dir="ltr" style="font-family:'Heebo',sans-serif;font-size:19px;line-height:1;white-space:nowrap;color:#FFFFFF"><span style="font-weight:800;letter-spacing:-0.01em">Rubix</span> <span style="font-weight:500;color:#C4C8D2">Solutions</span></span></span>
-      <p>אוטומציות, מערכות ניהול, פתרונות AI ואתרים לעסקים קטנים</p>
+      <ul class="hero-tags ft-tags"><li>אוטומציות</li><li>מערכות ניהול</li><li>פתרונות AI</li><li>אתרים</li></ul>
     </div>
     <nav class="ft-col" aria-label="ניווט בתחתית העמוד">
       <p class="ft-h">ניווט מהיר</p>
@@ -1030,7 +1040,7 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"כחול עמוק","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"מערכות ניהול חכמות, אתרים שמביאים פניות, אוטומציות שחוסכות שעות, סוכני AI שעונים ללקוחות","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showPricing":{"editor":"boolean","default":false,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F45A","options":["#C8F45A","#5CE1E6","#FF9F5A","#A78BFA"],"section":"צבעים"},"theme":{"editor":"enum","options":["לילה","כחול עמוק","גרפיט חם"],"default":"כחול עמוק","section":"צבעים"},"headingFont":{"editor":"enum","options":["SF Pro (מערכת)","Heebo","Rubik","Secular One","Varela Round","Frank Ruhl Libre","Assistant"],"default":"SF Pro (מערכת)","section":"טיפוגרפיה"},"heroWords":{"editor":"text","default":"","section":"תוכן"},"phone":{"editor":"text","default":"0547714300","section":"פרטי קשר"},"email":{"editor":"text","default":"ryanir2608@gmail.com","section":"פרטי קשר"},"showTools":{"editor":"boolean","default":false,"section":"מקטעים"},"showWork":{"editor":"boolean","default":true,"section":"מקטעים"},"showStories":{"editor":"boolean","default":true,"section":"מקטעים"},"showRoi":{"editor":"boolean","default":true,"section":"מקטעים"},"showAbout":{"editor":"boolean","default":true,"section":"מקטעים"},"showFaq":{"editor":"boolean","default":true,"section":"מקטעים"},"showPricing":{"editor":"boolean","default":false,"section":"מקטעים"},"showTestimonials":{"editor":"boolean","default":false,"section":"מקטעים"},"showWhatsapp":{"editor":"boolean","default":true,"section":"מקטעים"},"animations":{"editor":"boolean","default":true,"section":"תנועה"}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
