@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://rubix-site-two.vercel.app/sitemap.xml

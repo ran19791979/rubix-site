@@ -17,6 +17,26 @@ m = re.search(r"<script type=\"text/x-dc\" data-dc-script data-props='([^']*)'>(
 props_def = json.loads(m.group(1)); logic = m.group(2)
 props = {k: v.get('default') for k, v in props_def.items()}
 
+# Sections switched off by a prop (pricing, testimonials, tools) never show on the static site,
+# so they are left out of the published page: their text (unapproved testimonials, old prices)
+# must not sit in the page source where search engines and AI tools would read it.
+def strip_off_sections(t):
+    off = {k for k, v in props.items() if v is False}
+    pat = re.compile(r'<sc-if value="{{(\w+)}}"[^>]*>')
+    out, i = [], 0
+    while True:
+        m = pat.search(t, i)
+        if not m: out.append(t[i:]); break
+        if m.group(1) not in off: out.append(t[i:m.end()]); i = m.end(); continue
+        depth, j = 1, m.end()
+        while depth:
+            o, c = t.find('<sc-if', j), t.find('</sc-if>', j)
+            if o != -1 and o < c: depth += 1; j = o + 6
+            else: depth -= 1; j = c + 8
+        out.append(t[i:m.start()]); i = j
+    return ''.join(out)
+tpl = strip_off_sections(re.sub(r'<!--[\s\S]*?-->', '', tpl))
+
 # only the fonts the page actually uses
 helmet = re.sub(r'<link rel="stylesheet" href="https://fonts.googleapis.com/[^"]*">',
                 '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
@@ -159,6 +179,20 @@ og_tags = (f'<meta property="og:type" content="website">\n<meta property="og:loc
            f'<meta property="og:title" content="{og_title}">\n<meta property="og:description" content="{og_desc}">\n'
            f'<meta property="og:image" content="{SITE}/media/og.jpg">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
            f'<meta property="og:image:alt" content="Rubix Solutions – העסק שלכם עובד גם כשאתם לא">\n<meta name="twitter:card" content="summary_large_image">')
+# Search engines and AI tools: the main page may be indexed; the /v2 copy points to it as the original.
+robots_tags = (f'<meta name="robots" content="noindex, follow">\n' if SUB else '') + f'<link rel="canonical" href="{SITE}/">'
+# Structured data, so search engines and AI tools understand the business and read the FAQ answers
+# (on the page the answers only appear when a question is opened).
+def _txt(s): return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', s)).strip()
+faq = [{'@type': 'Question', 'name': _txt(q), 'acceptedAnswer': {'@type': 'Answer', 'text': _txt(a)}}
+       for q, a in re.findall(r'class="faq-q"[\s\S]*?<span>([\s\S]*?)</span>[\s\S]*?<p class="faq-a"[^>]*>([\s\S]*?)</p>', tpl)]
+assert all('{{' not in x['name'] + x['acceptedAnswer']['text'] for x in faq), 'FAQ text has template holes'
+ld = [{'@context': 'https://schema.org', '@type': 'ProfessionalService', 'name': 'Rubix Solutions', 'url': SITE + '/',
+       'description': og_desc, 'telephone': '+972' + str(props.get('phone', '')).lstrip('0'), 'email': props.get('email'),
+       'image': SITE + '/media/og.jpg', 'areaServed': {'@type': 'Country', 'name': 'ישראל'},
+       'knowsAbout': ['אוטומציות לעסקים', 'Make.com', 'סוכני AI', 'בניית אתרים עם אוטומציה', 'דשבורדים לניהול', 'סדנאות AI לצוותים']}]
+if faq: ld.append({'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faq})
+ld_tags = '\n'.join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False).replace('</', '<\\/') + '</script>' for x in ld)
 html = f'''<!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -166,8 +200,9 @@ html = f'''<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="רובי בונה לעסקים דשבורדים לניהול, אתרי תדמית ומידע, אוטומציות ב-Make וסוכני AI שחוסכים שעות עבודה כל שבוע.">
-<meta name="robots" content="noindex, nofollow">
+{robots_tags}
 {og_tags}
+{ld_tags}
 <meta name="theme-color" content="#050A18">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 {helmet}
@@ -194,5 +229,14 @@ if SUB:  # media and favicon live once, in public/
 open(OUT + '/index.html', 'w', encoding='utf-8').write(html)
 open(OUT + '/app.js', 'w', encoding='utf-8').write(appjs)
 if not SUB: open(OUT + '/favicon.svg', 'w').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#C8F45A"/><text x="20" y="28" font-family="Arial" font-weight="900" font-size="22" text-anchor="middle" fill="#07080C">R</text></svg>')
-if not SUB: open(OUT + '/robots.txt', 'w').write('User-agent: *\nDisallow: /\n')
+if not SUB:
+    open(OUT + '/robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
+    import datetime
+    today = datetime.date.today().isoformat()
+    open(OUT + '/sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + ''.join(f'  <url><loc>{SITE}/{p}</loc><lastmod>{today}</lastmod></url>\n' for p in ('', 'negishut.html')) + '</urlset>\n')
+# The page is built by JavaScript in the browser. Tools that read only the raw file (many AI tools)
+# would see an empty page, so the first render is saved into index.html ("pre-rendering").
+import subprocess
+subprocess.run([sys.executable, ROOT + '/tools/prerender.py', OUT], check=True)
 print('built', OUT)
