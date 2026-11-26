@@ -337,6 +337,17 @@ class Component extends DCLogic {
         pick: () => this.setState({ story: idx })
       };
     };
+    const svFor = (idx) => ({
+      flipped: this.state['sv' + idx] ? 'true' : 'false',
+      toggle: () => {
+        const now = !this.state['sv' + idx];
+        const ae = document.activeElement;
+        const hadFocus = !!(ae && ae.closest && ae.closest('#sv' + idx));
+        this.setState({ ['sv' + idx]: now });
+        // keep keyboard users on the face that is now showing
+        if (hadFocus) setTimeout(() => { const b = document.querySelector('#sv' + idx + (now ? ' .sv-back' : ' .sv-front') + ' .sv-btn'); if (b) b.focus({ preventScroll: true }); }, 30);
+      }
+    });
     const faqFor = (idx) => ({
       open: this.state.open === idx,
       sign: this.state.open === idx ? '−' : '+',
@@ -373,6 +384,7 @@ class Component extends DCLogic {
       progW: this.state.prog.toFixed(1) + '%',
       progScale: (this.state.prog / 100).toFixed(4),
       menuOpen: this.state.menu,
+      menuExp: this.state.menu ? 'true' : 'false',
       menuClosed: !this.state.menu,
       toggleMenu: () => this.setState({ menu: !this.state.menu }),
       closeMenu: () => this.setState({ menu: false }),
@@ -386,6 +398,7 @@ class Component extends DCLogic {
       showFaq: on(p.showFaq), showWhatsapp: on(p.showWhatsapp), showTestimonials: on(p.showTestimonials), showPricing: on(p.showPricing),
       tab0: tabFor(0), tab1: tabFor(1), tab2: tabFor(2), tab3: tabFor(3), tab4: tabFor(4), tab5: tabFor(5), tab6: tabFor(6), tab7: tabFor(7),
       story0: this.state.story === 0, story1: this.state.story === 1, story2: this.state.story === 2, story3: this.state.story === 3, story4: this.state.story === 4, story5: this.state.story === 5, story6: this.state.story === 6, story7: this.state.story === 7,
+      sv0: svFor(0), sv1: svFor(1), sv2: svFor(2), sv3: svFor(3),
       faq0: faqFor(0), faq1: faqFor(1), faq2: faqFor(2), faq3: faqFor(3), faq4: faqFor(4), faq5: faqFor(5),
       useEx0: useEx(0), useEx1: useEx(1), useEx2: useEx(2),
       desc: this.state.desc,

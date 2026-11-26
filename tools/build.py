@@ -234,7 +234,7 @@ if not SUB:
     import datetime
     today = datetime.date.today().isoformat()
     open(OUT + '/sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + ''.join(f'  <url><loc>{SITE}/{p}</loc><lastmod>{today}</lastmod></url>\n' for p in ('', 'negishut.html')) + '</urlset>\n')
+        + ''.join(f'  <url><loc>{SITE}/{p}</loc><lastmod>{today}</lastmod></url>\n' for p in ('', 'negishut.html', 'privacy.html')) + '</urlset>\n')
 # The page is built by JavaScript in the browser. Tools that read only the raw file (many AI tools)
 # would see an empty page, so the first render is saved into index.html ("pre-rendering").
 import subprocess
