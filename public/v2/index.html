@@ -515,6 +515,25 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 
 
 
+<div id="trust" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px 0;display:flex;flex-direction:column;gap:36px">
+  <div class="rv" style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">הלקוחות הראשונים שלי</h2>
+    <p class="h-sub">מספרים בעצמם</p>
+  </div>
+  <div class="tm-grid">
+    <figure class="card tm rv">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:#7C8190"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"></path></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">אתר תדמית ומידע</span></div>
+      <blockquote>רובי בנה לנו אתר שמספר את הסיפור של בית הספר כמו שהוא באמת: מי אנחנו, במה אנחנו מאמינים ומה קורה אצלנו. הוא הקשיב, שאל את השאלות הנכונות, והתוצאה מדויקת, מרשימה ונראית מצוין גם בטלפון.</blockquote>
+      <figcaption><b>מיקי שומרון</b><span>מנהלת בית ספר גלבוע בית אלפא</span></figcaption>
+    </figure>
+    <figure class="card tm rv">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:#7C8190"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"></path></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">דשבורד + סוכני AI</span></div>
+      <blockquote>רובי בנה לי דשבורד שמרכז את כל הלקוחות ותוכנית התוכן במקום אחד, עם סוכני AI שכותבים טיוטות בסגנון של כל לקוח ובודקים אותן לפני שהן מגיעות אליי. מה שלקח לי שעות כל שבוע, היום לוקח דקות.</blockquote>
+      <figcaption><b>הדס קרני</b><span>שיווק דיגיטלי</span></figcaption>
+    </figure>
+  </div>
+</div>
+
 
 
 <div id="services" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:36px">
@@ -939,7 +958,26 @@ a.cta:active,a.ghost:active,a.ghost-strong:active,button.send:active,button.go:a
 </sc-if>
 
 
-
+<sc-if value="{{showTestimonials}}" hint-placeholder-val="{{false}}">
+<div id="trust" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px 0;display:flex;flex-direction:column;gap:36px">
+  <div class="rv" style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+    <h2 style="font-size:clamp(32px,4.2vw,56px);font-weight:800;line-height:1.08;color:#FFFFFF">הלקוחות הראשונים שלי</h2>
+    <p class="h-sub">מספרים בעצמם</p>
+  </div>
+  <div class="tm-grid">
+    <figure class="card tm rv">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:#7C8190"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">אתר תדמית ומידע</span></div>
+      <blockquote>רובי בנה לנו אתר שמספר את הסיפור של בית הספר כמו שהוא באמת: מי אנחנו, במה אנחנו מאמינים ומה קורה אצלנו. הוא הקשיב, שאל את השאלות הנכונות, והתוצאה מדויקת, מרשימה ונראית מצוין גם בטלפון.</blockquote>
+      <figcaption><b>מיקי שומרון</b><span>מנהלת בית ספר גלבוע בית אלפא</span></figcaption>
+    </figure>
+    <figure class="card tm rv">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="color:#7C8190"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2H5v2h1a4 4 0 0 0 4-4V7zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v1a2 2 0 0 1-2 2h-1v2h1a4 4 0 0 0 4-4V7z"/></svg><span style="font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.06);color:#D2D5DE">דשבורד + סוכני AI</span></div>
+      <blockquote>רובי בנה לי דשבורד שמרכז את כל הלקוחות ותוכנית התוכן במקום אחד, עם סוכני AI שכותבים טיוטות בסגנון של כל לקוח ובודקים אותן לפני שהן מגיעות אליי. מה שלקח לי שעות כל שבוע, היום לוקח דקות.</blockquote>
+      <figcaption><b>הדס קרני</b><span>שיווק דיגיטלי</span></figcaption>
+    </figure>
+  </div>
+</div>
+</sc-if>
 
 
 <div id="services" class="sec" style="max-width:1280px;margin:0 auto;padding:110px 32px;display:flex;flex-direction:column;gap:36px">

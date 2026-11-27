@@ -426,7 +426,7 @@ class Component extends DCLogic {
 }
 
 (function () {
-  const props = {"accent": "#C8F45A", "theme": "כחול עמוק", "headingFont": "SF Pro (מערכת)", "heroWords": "", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showPricing": false, "showTestimonials": false, "showWhatsapp": true, "animations": true};
+  const props = {"accent": "#C8F45A", "theme": "כחול עמוק", "headingFont": "SF Pro (מערכת)", "heroWords": "", "phone": "0547714300", "email": "ryanir2608@gmail.com", "showTools": false, "showWork": true, "showStories": true, "showRoi": true, "showAbout": true, "showFaq": true, "showPricing": false, "showTestimonials": true, "showWhatsapp": true, "animations": true};
   const comp = new Component(props);
   const tpl = document.getElementById('dc-tpl');
   const root = document.getElementById('dc-root');
